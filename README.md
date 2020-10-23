@@ -3,6 +3,7 @@
 * Data Structure
 	- week1
 	- week2
+	- week3
 * Program Design 
 	- Lec2
 	- Lec3
