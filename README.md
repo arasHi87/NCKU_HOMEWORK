@@ -10,3 +10,4 @@
 	- Lec4
 	- Lec5
 	- Lec6
+	- Lec7
