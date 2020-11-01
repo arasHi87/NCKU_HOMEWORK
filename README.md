@@ -1,10 +1,10 @@
 # NCKU_HOMEWORK
 
 * Data Structure
-	- week1
-	- week2
-	- week3
-	- week4
+	- HW1
+	- HW2
+	- HW3
+	- HW4
 * Program Design 
 	- Lec2
 	- Lec3
