@@ -4,6 +4,7 @@
 	- week1
 	- week2
 	- week3
+	- week4
 * Program Design 
 	- Lec2
 	- Lec3
