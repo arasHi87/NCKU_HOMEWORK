@@ -12,3 +12,4 @@
 	- Lec5
 	- Lec6
 	- Lec7
+	- Lec8
