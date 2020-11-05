@@ -20,7 +20,7 @@ typedef struct {
 } Queue;
 
 char ch;
-int n, tmp=0, flag=1;
+int n, num=0, flag=1;
 
 void BSTInsertNode(bstNode* root, int val) {
 	bstNode* cur=root;
@@ -45,15 +45,28 @@ bstNode* BSTMinNode(bstNode* root) {
 }
 
 bstNode* BSTDeleteNode(bstNode* root, int val) {
-	if (val>root->val) root->right=BSTDeleteNode(root->right, val);
+	if (!root) return root;
+	else if (val>root->val) root->right=BSTDeleteNode(root->right, val);
 	else if (val<root->val) root->left=BSTDeleteNode(root->left, val);
 	else {
-		if (root->left && root->right) {
-			bstNode* node=BSTMinNode(root->right);
+		int tar;
+		bstNode* tmp;
 
-			root->val=node->val;
-			root->right=BSTDeleteNode(root->right, node->val);
-		} else return (root->left ? root->left : root->right);
+		if (root->left) {
+			for (tmp=root->left;tmp->right;tmp=tmp->right);
+			
+			tar=tmp->val, tmp->val=root->val, root->val=tar;
+			root->left=BSTDeleteNode(root->left, tmp->val);
+		} else if (root->right) {
+			for (tmp=root->right;tmp->left;tmp=tmp->left);
+			
+			tar=tmp->val, tmp->val=root->val, root->val=tar;
+			root->right=BSTDeleteNode(root->right, tmp->val);
+		} else {
+			free(root);
+
+			return NULL;
+		}
 	}
 
 	return root;
@@ -122,12 +135,12 @@ int main() {
 		if ((ch==' ' || ch=='\n') && flag) {
 			if (ch=='\n') flag=0;
 			
-			~root->val ? BSTInsertNode(root, tmp) : (root->val=tmp);
+			~root->val ? BSTInsertNode(root, num) : (root->val=num);
 			
-			tmp=0;
+			num=0;
 		}
-		else if ((ch==' ' || ch=='\n') && !flag) BSTDeleteNode(root, tmp), tmp=0;
-		else tmp*=10, tmp+=(ch-'0');
+		else if ((ch==' ' || ch=='\n') && !flag) BSTDeleteNode(root, num), num=0;
+		else num*=10, num+=(ch-'0');
 	}
 
 	PrintBST(root);
