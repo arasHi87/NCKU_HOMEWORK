@@ -6,11 +6,11 @@
 	- HW3
 	- HW4
 * Program Design 
-	- Lec2
-	- Lec3
-	- Lec4
-	- Lec5
-	- Lec6
-	- Lec7
-	- Lec8
-	- Mid1
+	- Lec02
+	- Lec03
+	- Lec04
+	- Lec05
+	- Lec06
+	- Lec07
+	- Lec08
+	- Mid01
