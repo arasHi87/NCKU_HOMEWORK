@@ -13,3 +13,4 @@
 	- Lec6
 	- Lec7
 	- Lec8
+	- Mid1
