@@ -9,10 +9,6 @@ typedef struct pair {
 typedef struct Node {
 	char idx;
 	int c_s, p_s, s_s;
-
-	// categories score
-	// point score
-	// suit score
 } node;
 
 char str[5][5];
@@ -20,8 +16,6 @@ pair arr[5];
 node ans[5];
 
 pair convert(char s[]) {
-	// first point
-	// second suit
 	pair* tmp=(pair*)malloc(sizeof(pair*));
 
 	if (s[0]>='0' && s[0]<='9') tmp->ft=s[0]-'0';
@@ -39,8 +33,8 @@ pair convert(char s[]) {
 }
 
 int pair_cmp(const void* a, const void* b) {
-	if (((pair*)a)->ft!=((pair*)b)->ft) return (((pair*)a)->ft - ((pair*)b)->ft)*-1;
-	return (((pair*)a)->sd - ((pair*)b)->sd)*-1;
+	if (((pair*)a)->ft!=((pair*)b)->ft) return ((pair*)b)->ft - ((pair*)a)->ft;
+	return ((pair*)b)->sd - ((pair*)a)->sd;
 }
 
 int node_cmp(const void* a, const void* b) {
@@ -57,8 +51,6 @@ int node_cmp(const void* a, const void* b) {
 			return ((node*)b)->s_s - ((node*)a)->s_s;
 			break;
 		case 8:
-			return ((node*)b)->p_s - ((node*)a)->p_s;
-			break;
 		case 7:
 		case 4:
 			return ((node*)b)->p_s - ((node*)a)->p_s;
