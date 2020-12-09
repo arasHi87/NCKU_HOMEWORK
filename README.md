@@ -16,5 +16,6 @@
 	- Mid01
 	- Lec09
 	- Lec11
+	- Lec12
 * AIMAS
 	- HW3
