@@ -18,5 +18,6 @@
 	- Lec11
 	- Lec12
     - Lec13
+    - Lec14
 * AIMAS
 	- HW3
