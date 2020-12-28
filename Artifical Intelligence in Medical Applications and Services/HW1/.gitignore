@@ -1,0 +1,6 @@
+__pycache__
+*.swp
+EKG
+EKG_seg
+label
+homework
