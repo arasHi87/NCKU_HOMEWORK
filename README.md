@@ -18,6 +18,9 @@
 	- Lec11
 	- Lec12
     - Lec13
-    - Lec14
+    - Lec16
 * AIMAS
+    - HW1
 	- HW3
+* Chinese
+    - FinalProject
