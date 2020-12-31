@@ -15,7 +15,7 @@ void push(struct head *stack_p, int data) {     // create an element and push it
 }
 
 struct element* pop(struct head *stack_p) {     // return the element which is popped from the stack
-    struct element* tmp=(struct element*)malloc(sizeof(struct element));
+    struct element* tmp=stack_p->top;
     struct element* meow=(struct element*)malloc(sizeof(struct element));
     
     tmp=stack_p->top;
