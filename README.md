@@ -5,7 +5,7 @@
     - [HW2 - Queueing in campus cafeteria](https://github.com/arasHi87/NCKU_HOMEWORK/tree/master/Data%20Structure/Homework2)   
 	- [HW3 - Queueing in campus cafeteria](https://github.com/arasHi87/NCKU_HOMEWORK/tree/master/Data%20Structure/Homework3)  
 	- [HW4 - Binary Search Tree - Deletion](https://github.com/arasHi87/NCKU_HOMEWORK/tree/master/Data%20Structure/Homework4)  
-* Program Design 
+* Program Design I 
 	- [Week02 - C Fundamentals](https://github.com/arasHi87/NCKU_HOMEWORK/tree/master/Program%20Design/Week02)
 	- [Week03 - Formatted I/O](https://github.com/arasHi87/NCKU_HOMEWORK/tree/master/Program%20Design/Week03)
 	- [Week05 - Expressions](https://github.com/arasHi87/NCKU_HOMEWORK/tree/master/Program%20Design/Week05)
