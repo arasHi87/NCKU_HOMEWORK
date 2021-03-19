@@ -21,6 +21,9 @@
     - [Week16 - Structures, Unions and Enumerations](https://github.com/arasHi87/NCKU_HOMEWORK/tree/master/Program%20Design/Week16)
     - [Week17 - Advanced Uses of Pointers](https://github.com/arasHi87/NCKU_HOMEWORK/tree/master/Program%20Design/Week17)
     - [Mid02](https://github.com/arasHi87/NCKU_HOMEWORK/tree/master/Program%20Design/Mid02)
+* Program Design II
+    - [HW01](https://github.com/arasHi87/NCKU_HOMEWORK/tree/master/Program%20Design%20II/HW01)
+    - [HW02](https://github.com/arasHi87/NCKU_HOMEWORK/tree/master/Program%20Design%20II/HW02)
 * AIMAS
     - [HW1 - Detected EKG](https://github.com/arasHi87/NCKU_HOMEWORK/tree/master/Artifical%20Intelligence%20in%20Medical%20Applications%20and%20Services/HW1)
     - [HW2 - Detected Age Macular Degeneration](https://github.com/arasHi87/NCKU_HOMEWORK/tree/master/Artifical%20Intelligence%20in%20Medical%20Applications%20and%20Services/HW2)
