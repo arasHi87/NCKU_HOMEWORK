@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane onKeyPressed="#BindKey" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
+   <left>
+      <AnchorPane prefHeight="500.0" prefWidth="295.0" style="-fx-background-color: white; -fx-background-radius: 25;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="history" layoutX="20.0" layoutY="20.0" prefHeight="30.0" prefWidth="255.0" textAlignment="RIGHT">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="input" layoutX="20.0" layoutY="60.0" prefHeight="40.0" prefWidth="255.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="output" layoutX="20.0" layoutY="110.0" prefHeight="40.0" prefWidth="255.0">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Button fx:id="all_clear" focusTraversable="false" layoutX="20.0" layoutY="160.0" mnemonicParsing="false" onAction="#pressAllClear" prefHeight="60.0" prefWidth="60.0" text="A">
+               <font>
+                  <Font size="25.0" />
+               </font></Button>
+            <Button fx:id="clear_entry" focusTraversable="false" layoutX="85.0" layoutY="160.0" mnemonicParsing="false" onAction="#pressClearEntry" prefHeight="60.0" prefWidth="60.0" text="C">
+               <font>
+                  <Font size="25.0" />
+               </font></Button>
+            <Button fx:id="backspace" focusTraversable="false" layoutX="150.0" layoutY="160.0" mnemonicParsing="false" onAction="#pressBackspace" prefHeight="60.0" prefWidth="60.0" text="&lt;-">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="one" focusTraversable="false" layoutX="20.0" layoutY="225.0" mnemonicParsing="false" onAction="#pressNumber" prefHeight="60.0" prefWidth="60.0" text="1">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="two" focusTraversable="false" layoutX="85.0" layoutY="225.0" mnemonicParsing="false" onAction="#pressNumber" prefHeight="60.0" prefWidth="60.0" text="2">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="three" focusTraversable="false" layoutX="150.0" layoutY="225.0" mnemonicParsing="false" onAction="#pressNumber" prefHeight="60.0" prefWidth="60.0" text="3">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="four" focusTraversable="false" layoutX="20.0" layoutY="290.0" mnemonicParsing="false" onAction="#pressNumber" prefHeight="60.0" prefWidth="60.0" text="4">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="five" focusTraversable="false" layoutX="85.0" layoutY="290.0" mnemonicParsing="false" onAction="#pressNumber" prefHeight="60.0" prefWidth="60.0" text="5">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="six" focusTraversable="false" layoutX="150.0" layoutY="290.0" mnemonicParsing="false" onAction="#pressNumber" prefHeight="60.0" prefWidth="60.0" text="6">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="seven" focusTraversable="false" layoutX="20.0" layoutY="355.0" mnemonicParsing="false" onAction="#pressNumber" prefHeight="60.0" prefWidth="60.0" text="7">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="eight" focusTraversable="false" layoutX="85.0" layoutY="355.0" mnemonicParsing="false" onAction="#pressNumber" prefHeight="60.0" prefWidth="60.0" text="8">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="nine" focusTraversable="false" layoutX="150.0" layoutY="355.0" mnemonicParsing="false" onAction="#pressNumber" prefHeight="60.0" prefWidth="60.0" text="9">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="zero" focusTraversable="false" layoutX="85.0" layoutY="420.0" mnemonicParsing="false" onAction="#pressNumber" prefHeight="60.0" prefWidth="60.0" text="0">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="dot" focusTraversable="false" layoutX="20.0" layoutY="420.0" mnemonicParsing="false" onAction="#pressNumber" prefHeight="60.0" prefWidth="60.0" text=".">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="add" focusTraversable="false" layoutX="215.0" layoutY="420.0" mnemonicParsing="false" onAction="#pressOperator" prefHeight="60.0" prefWidth="60.0" text="+">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="sub" focusTraversable="false" layoutX="215.0" layoutY="355.0" mnemonicParsing="false" onAction="#pressOperator" prefHeight="60.0" prefWidth="60.0" text="-">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="mul" focusTraversable="false" layoutX="215.0" layoutY="290.0" mnemonicParsing="false" onAction="#pressOperator" prefHeight="60.0" prefWidth="60.0" text="*">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="div" focusTraversable="false" layoutX="215.0" layoutY="225.0" mnemonicParsing="false" onAction="#pressOperator" prefHeight="60.0" prefWidth="60.0" text="/">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+            <Button fx:id="equal" defaultButton="true" layoutX="150.0" layoutY="420.0" mnemonicParsing="false" onAction="#pressEqual" prefHeight="60.0" prefWidth="60.0" text="=">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </left>
+</BorderPane>
