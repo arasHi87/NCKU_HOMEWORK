@@ -1,0 +1,6 @@
+5
+recursive 0
+iterative 0
+recursive 10
+iterative 10
+iterative 40
