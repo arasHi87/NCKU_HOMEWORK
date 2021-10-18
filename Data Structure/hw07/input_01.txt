@@ -1,0 +1,14 @@
+13
+pread expressionA 2 2 2 1 1
+pread expressionB 2 3 2 2 1
+pwrite expressionA
+pwrite expressionB
+padd resultC expressionA expressionB
+pwrite resultC
+perase resultC
+psub resultC expressionA expressionB
+pwrite resultC
+perase resultC
+pmult resultC expressionA expressionB
+pwrite resultC
+eval resultC 2.5
