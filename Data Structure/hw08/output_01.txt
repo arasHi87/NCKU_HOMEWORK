@@ -1,0 +1,12 @@
+readed
+readed
+true
+(A(B,C))
+(A(B,C))
+copied
+(A(B,C))
+cleared
+cleared
+cleared
+readed
+(A(B(E(K,L),F),C(G),D(H(M),I,J)))

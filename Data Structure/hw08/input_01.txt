@@ -1,0 +1,13 @@
+12
+read 0 (A(B,C))
+read 1 (A(C,B))
+isequal 0 1
+write 0
+write 1
+copy 0 2
+write 2
+clear 0
+clear 1
+clear 2
+read 0 (A(B(E(L,K),F),C(G),D(H(M),I,J)))
+write 0
