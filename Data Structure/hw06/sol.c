@@ -15,7 +15,6 @@ void pre2post()
     int top = 0, len = strlen(pre);
 
     for (int i = len - 1; i >= 0; i--) {
-        // printf("%c\n", pre[i]);
         if (is_op(pre[i])) {
             strcpy(op1, stk[--top]);
             strcpy(op2, stk[--top]);
@@ -23,10 +22,6 @@ void pre2post()
         } else {
             stk[top][0] = pre[i], stk[top++][1] = '\0';
         }
-        // for (int i = top - 1; i >= 0; i--)
-        //         printf("%s", stk[i]);
-        //     puts("");
-        // printf("%d\n", top);
     }
     for (int i = top - 1; i >= 0; i--)
         printf("%s", stk[i]);
