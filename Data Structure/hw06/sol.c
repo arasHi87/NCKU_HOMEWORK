@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <string.h>
-const int maxN = 100;
 
-char pre[maxN], post[maxN], stk[maxN][maxN];
+char pre[100], post[100], stk[100][100];
 
 int is_op(char ch)
 {
@@ -11,7 +10,7 @@ int is_op(char ch)
 
 void pre2post()
 {
-    char op1[maxN], op2[maxN];
+    char op1[100], op2[100];
     int top = 0, len = strlen(pre);
 
     for (int i = len - 1; i >= 0; i--) {
@@ -29,7 +28,7 @@ void pre2post()
 
 void post2pre()
 {
-    char op1[maxN], op2[maxN];
+    char op1[100], op2[100];
     int top = 0, len = strlen(post);
 
     for (int i = 0; i < len; i++) {

@@ -2,10 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-const int maxN = 1e3 + 7;
 
 char ch;
-int n, m, t, sum, mp[maxN][maxN], vis[maxN][maxN];
+int n, m, t, sum, mp[1000][1000], vis[1000][1000];
 int d[8][8] = { { -1, 1 }, { 0, 1 }, { 1, 1 }, { 1, 0 }, { 1, -1 }, { 0, -1 }, { -1, -1 }, { -1, 0 } };
 
 void dfs(int x, int y, int cnt)
@@ -39,7 +38,7 @@ int main()
         } else {
             scanf("%d", &t);
             if (t == 1) {
-                n = m = 35;
+                n = m = 15;
                 dfs(10, 10, 0);
             } else {
                 n = 39, m = 19;

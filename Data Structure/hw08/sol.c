@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-const int maxN = 1e2 + 10;
 
 typedef struct node {
     char val;
@@ -11,7 +10,7 @@ typedef struct node {
 
 int n, x, y;
 char* str;
-Node* list[maxN];
+Node* list[100];
 
 Node* init(char ch)
 {
@@ -25,7 +24,7 @@ Node* build(Node* root)
 {
     int top = 0;
     Node *cur = root, *tmp;
-    Node** stk = (Node**)malloc(sizeof(Node) * maxN);
+    Node** stk = (Node**)malloc(sizeof(Node) * 100);
 
     cur->val = *(++str);
     cur->left = NULL, cur->right = NULL;
@@ -77,14 +76,14 @@ void getstr(Node* root, char* ch)
 int isequal(Node* a, Node* b)
 {
     char *as, *bs;
-    as = (char*)malloc(sizeof(char) * maxN), bs = (char*)malloc(sizeof(char) * maxN);
+    as = (char*)malloc(sizeof(char) * 100), bs = (char*)malloc(sizeof(char) * 100);
     getstr(a, as), getstr(b, bs);
     return !strcmp(as, bs);
 }
 
 int main()
 {
-    str = (char*)malloc(sizeof(char) * maxN);
+    str = (char*)malloc(sizeof(char) * 100);
     scanf("%d", &n);
     while (n--) {
         scanf("%s", str);
@@ -93,7 +92,7 @@ int main()
             list[x] = (Node*)malloc(sizeof(Node));
             build(list[x]), sort(list[x]), puts("readed");
         } else if (*str == 'i') {
-            char* tmp = (char*)malloc(sizeof(char) * maxN);
+            char* tmp = (char*)malloc(sizeof(char) * 100);
             scanf("%d%d", &x, &y);
             printf(isequal(list[x], list[y]) ? "true\n" : "false\n");
         } else if (*str == 'w') {

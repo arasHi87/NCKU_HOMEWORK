@@ -1,12 +1,11 @@
 #include <stdio.h>
 #include <string.h>
-const int maxN = 100;
 
 struct step {
     int x, y;
-} ans[maxN];
+} ans[100];
 
-int n, m, idx = 0, mp[maxN][maxN], vis[maxN][maxN];
+int n, m, idx = 0, mp[100][100], vis[100][100];
 int d[8][8] = { { -1, 1 }, { 0, 1 }, { 1, 1 }, { 1, 0 }, { 1, -1 }, { 0, -1 }, { -1, -1 }, { -1, 0 } };
 
 int dfs(int x, int y)

@@ -1,17 +1,16 @@
 #include <stdio.h>
-const int maxN = 2e5 + 10;
 
 typedef struct {
     int row, col, val;
 } matrix;
 
 int a, b, c, idx = 0;
-matrix arr[maxN];
+matrix arr[20000];
 
 void fastTranspose(matrix x[])
 {
-    matrix y[maxN];
-    int nzr[maxN] = { 0 }, sp[maxN] = { 0 };
+    matrix y[20000];
+    int nzr[20000] = { 0 }, sp[20000] = { 0 };
 
     y[0].row = x[0].col;
     y[0].col = x[0].row;

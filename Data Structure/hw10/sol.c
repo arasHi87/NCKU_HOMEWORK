@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-const int maxN = 1e3 + 10;
 
 typedef struct node {
     int val;
@@ -8,7 +7,7 @@ typedef struct node {
 } Node;
 
 Node* root;
-int n, arr[maxN];
+int n, arr[1000];
 
 Node* new_node(int x)
 {
@@ -21,7 +20,7 @@ Node* new_node(int x)
 void build()
 {
     int top = 0;
-    Node *stk[maxN], *cur = (Node*)malloc(sizeof(Node));
+    Node *stk[1000], *cur = (Node*)malloc(sizeof(Node));
 
     root = new_node(arr[1]), stk[++top] = root;
     for (int i = 2; i <= n; i++) {
@@ -46,7 +45,7 @@ void build()
 void pre()
 {
     int top = 0;
-    Node *stk[maxN], *cur = (Node*)malloc(sizeof(Node));
+    Node *stk[1000], *cur = (Node*)malloc(sizeof(Node));
 
     stk[++top] = root;
     while (top) {
@@ -64,7 +63,7 @@ void pre()
 void in()
 {
     int top = 0;
-    Node *stk[maxN], *cur = root;
+    Node *stk[1000], *cur = root;
 
     while (cur->val != -1 || top) {
         while (cur->val != -1)
@@ -78,7 +77,7 @@ void in()
 void swap()
 {
     int top = 0;
-    Node *stk[maxN], *cur = (Node*)malloc(sizeof(Node)), *tmp = (Node*)malloc(sizeof(Node));
+    Node *stk[1000], *cur = (Node*)malloc(sizeof(Node)), *tmp = (Node*)malloc(sizeof(Node));
 
     stk[++top] = root;
     while (top) {
