@@ -41,14 +41,10 @@ void thread(Node* root)
 {
     if (root) {
         thread(root->left);
-        if (!root->left) {
-            root->ltag = 1;
-            root->left = pre;
-        }
-        if (pre && !pre->right) {
-            pre->rtag = 1;
-            pre->right = root;
-        }
+        if (!root->left)
+            root->ltag = 1, root->left = pre;
+        if (pre && !pre->right)
+            pre->rtag = 1, pre->right = root;
         pre = root, thread(root->right);
     }
 }
