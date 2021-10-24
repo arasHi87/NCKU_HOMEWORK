@@ -1,0 +1,5 @@
+4 3
+3 left 4
+3 right 5
+4 right 2
+5 right 1
