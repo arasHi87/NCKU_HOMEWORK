@@ -1,0 +1,13 @@
+3
+preorder-inorder
+10
+6 3 2 9 5 8 7 1 4 10
+9 2 5 8 3 7 6 4 1 10
+preorder-inorder
+10
+10 2 4 9 7 3 6 1 5 8
+4 2 7 9 3 10 1 5 6 8
+postorder-inorder
+10
+2 9 6 4 5 8 10 7 1 3
+7 9 2 4 6 10 8 5 3 1
