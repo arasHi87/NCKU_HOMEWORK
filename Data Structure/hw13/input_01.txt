@@ -1,0 +1,9 @@
+2
+10 5
+union 0 1
+union 2 0
+find 2
+same 2 1
+same 2 4
+1000 1
+find 999
