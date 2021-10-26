@@ -19,12 +19,12 @@ int find(int x)
 void unite(int x, int y)
 {
     x = find(x), y = find(y);
-    if (rank[x] < rank[y])
-        root[y] = x;
-    else if (rank[x] > rank[y])
-        root[x] = y;
-    else if (root[x] != root[y] && rank[x] == rank[y])
-        rank[x]--, root[y] = x;
+    if (x != y) {
+        if (rank[x] <= rank[y])
+            root[y] = x, rank[x] -= (rank[x] == rank[y]);
+        else
+            root[x] = y;
+    }
 }
 
 int main()
