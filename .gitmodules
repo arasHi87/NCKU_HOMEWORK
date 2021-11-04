@@ -1,0 +1,3 @@
+[submodule "Operating Systems/hw1"]
+	path = Operating Systems/hw1
+	url = https://github.com/arasHi87/OS-LKM-Build
