@@ -23,27 +23,28 @@ def gen_testcase(ops_rng):
 
 
 def _execute(target):
-    x, y = [], []
+    x, y = [[], []], [[], []]
     for i in trange(OPS_RNG):
         testcase = gen_testcase(i)
-        st = time.time()
-        run(args='./{}'.format(target), encoding='utf-8', input=testcase,
-            shell=True, text=True, stdout=PIPE)
-        ct = time.time() - st
-        if i % 100 == 0:
-            x.append(i)
-            y.append(ct)
+        for j in [0, 1]:
+            st = time.time()
+            run(args='./{}'.format(target[j]), encoding='utf-8', input=testcase,
+                shell=True, text=True, stdout=PIPE)
+            ct = time.time() - st
+            if i % 100 == 0:
+                x[j].append(i)
+                y[j].append(ct)
+    for i in [0, 1]:
+        plt.plot(x[i], y[i], label=target[i])
+        print("{} drawed".format(target[i]))
 
-    plt.plot(x, y, label=target)
-    print("{} drawed".format(target))
-
-    ay = [sum(y) / float(len(y))] * int(OPS_RNG / 100)
-    plt.plot(x, ay, label="{} average".format(target), linestyle="--")
+        ay = [sum(y[i]) / float(len(y[i]))] * int(OPS_RNG / 100)
+        plt.plot(x[i], ay, label="{} average".format(
+            target[i]), linestyle="--")
 
 
 def execute():
-    _execute("hdsu")
-    _execute("wdsu")
+    _execute(["hdsu", "wdsu"])
 
     plt.title("Height vs Weight unoin in disjoinset")
     plt.xlabel("Number of operations")
