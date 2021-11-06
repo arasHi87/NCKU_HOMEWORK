@@ -9,13 +9,13 @@ typedef struct edge {
 
 Edge edge[maxN << 1];
 int n, s, cnt = 0;
-int head[maxN], arr[maxN], vis[maxN], ans[maxN];
+int head[maxN], vis[maxN], ans[maxN];
 
 void init()
 {
     cnt = 0;
     memset(head, -1, sizeof head);
-    memset(arr, 0, sizeof arr);
+    memset(ans, 0, sizeof ans);
 }
 
 void addedge(int u, int v, int w)
