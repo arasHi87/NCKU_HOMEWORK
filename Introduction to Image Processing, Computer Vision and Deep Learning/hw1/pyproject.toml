@@ -10,6 +10,7 @@ PyQt5 = "^5.15.6"
 opencv-python = "^4.5.4"
 isort = "^5.10.1"
 pylint = "^2.11.1"
+pre-commit = "^2.15.0"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^4.0.1"

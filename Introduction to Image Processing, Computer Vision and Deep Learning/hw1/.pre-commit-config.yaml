@@ -1,0 +1,15 @@
+repos:
+  - repo: local
+    hooks:
+    - id: format
+      name: Code format
+      entry: make format
+      language: system
+      always_run: true
+  - repo: local
+    hooks:
+    - id: lint
+      name: Code lint
+      entry: make lint
+      language: system
+      always_run: true
