@@ -8,6 +8,8 @@ authors = ["arashi87 <arasi27676271@gmail.com>"]
 python = "==3.7"
 PyQt5 = "^5.15.6"
 opencv-python = "^4.5.4"
+isort = "^5.10.1"
+pylint = "^2.11.1"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^4.0.1"
