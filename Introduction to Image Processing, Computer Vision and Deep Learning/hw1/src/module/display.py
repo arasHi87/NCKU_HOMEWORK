@@ -1,5 +1,5 @@
 from PyQt5.QtGui import QImage, QPixmap
-from PyQt5.QtWidgets import QLabel, QVBoxLayout, QMainWindow, QWidget
+from PyQt5.QtWidgets import QLabel, QMainWindow, QVBoxLayout, QWidget
 
 
 class DisplayWindow(QMainWindow):
