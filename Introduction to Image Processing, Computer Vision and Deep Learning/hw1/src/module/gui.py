@@ -1,4 +1,8 @@
+from functools import partial
+
 from PyQt5.QtWidgets import QMainWindow, QPushButton
+
+from .process import Process
 
 
 class Window(QMainWindow):
@@ -44,5 +48,13 @@ class Window(QMainWindow):
         for i in range(len(msg)):
             for j in range(len(msg[i])):
                 btn = QPushButton(msg[i][j], self)
+                btn.clicked.connect(partial(self._executor, i, j))
                 btn.resize(200, 50)
                 btn.move(self.locate_row(i), self.locate_col(j))
+
+    def _executor(self, i, j):
+        _process = Process(self)
+        func = [[getattr(_process, "load_img")]]
+
+        if i < len(func) and j < len(func[i]):
+            func[i][j]()
