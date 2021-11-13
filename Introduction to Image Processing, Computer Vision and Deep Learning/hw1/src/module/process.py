@@ -16,8 +16,8 @@ class Process:
         print("Width: ", self.img.shape[1])
 
     def color_seperation(self):
-        for channel_index in range(3):
+        for idx in range(3):
             channel = np.zeros(shape=self.img.shape, dtype=np.uint8)
-            channel[:, :, channel_index] = self.img[:, :, channel_index]
+            channel[:, :, idx] = self.img[:, :, idx]
             self.display.add_img_to_window(channel)
         self.display.show()
