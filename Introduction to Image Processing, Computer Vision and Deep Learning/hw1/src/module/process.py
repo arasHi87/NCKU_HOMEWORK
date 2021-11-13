@@ -9,7 +9,7 @@ class Process:
         self.display = DisplayWindow(parent)
 
     def load_img(self):
-        self.display.show_image(self.img)
+        self.display.load_img(self.img)
         self.display.show()
 
     def color_seperation(self):

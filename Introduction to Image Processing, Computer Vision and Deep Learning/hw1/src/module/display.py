@@ -14,7 +14,7 @@ class DisplayWindow(QMainWindow):
         self.widget.setLayout(self.layout)
         self.setCentralWidget(self.widget)
 
-    def show_image(self, cv_img):
+    def load_img(self, cv_img):
         # convert opencv image
         q_image = QImage(
             cv_img.data, cv_img.shape[1], cv_img.shape[0], QImage.Format_RGB888
