@@ -11,3 +11,7 @@ class Process:
     def load_img(self):
         self.display.show_image(self.img)
         self.display.show()
+
+    def color_seperation(self):
+        self.display.color_seperation(self.img)
+        self.display.show()

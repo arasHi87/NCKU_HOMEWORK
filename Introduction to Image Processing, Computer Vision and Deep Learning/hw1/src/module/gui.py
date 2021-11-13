@@ -54,7 +54,7 @@ class Window(QMainWindow):
 
     def _executor(self, i, j):
         _process = Process(self)
-        func = [[getattr(_process, "load_img")]]
+        func = [[getattr(_process, "load_img"), getattr(_process, "color_seperation")]]
 
         if i < len(func) and j < len(func[i]):
             func[i][j]()

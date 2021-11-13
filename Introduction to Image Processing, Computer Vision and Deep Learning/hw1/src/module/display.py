@@ -1,3 +1,4 @@
+import numpy as np
 from PyQt5.QtGui import QImage, QPixmap
 from PyQt5.QtWidgets import QLabel, QMainWindow, QVBoxLayout, QWidget
 
@@ -22,3 +23,15 @@ class DisplayWindow(QMainWindow):
         self.setGeometry(0, 0, cv_img.shape[1], cv_img.shape[0])
         print("Height: ", cv_img.shape[0])
         print("Width: ", cv_img.shape[1])
+
+    def color_seperation(self, cv_img):
+        for channel_index in range(3):
+            frame = QLabel()
+            self.layout.addWidget(frame)
+            channel = np.zeros(shape=cv_img.shape, dtype=np.uint8)
+            channel[:, :, channel_index] = cv_img[:, :, channel_index]
+            q_image = QImage(
+                channel.data, channel.shape[1], channel.shape[0], QImage.Format_RGB888
+            ).rgbSwapped()
+            frame.setPixmap(QPixmap.fromImage(q_image))
+        self.setGeometry(0, 0, channel.shape[1], channel.shape[0] * 3)
