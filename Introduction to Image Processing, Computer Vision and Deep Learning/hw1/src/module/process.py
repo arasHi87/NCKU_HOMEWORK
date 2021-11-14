@@ -21,3 +21,22 @@ class Process:
             channel[:, :, idx] = self.img[:, :, idx]
             self.display.add_img_to_window(channel)
         self.display.show()
+
+    def color_transformations(self):
+        result = []
+        img1 = np.zeros(shape=self.img.shape, dtype=np.uint8)
+        img2 = np.zeros(shape=self.img.shape, dtype=np.uint8)
+        for idx in range(3):
+            img1[:, :, idx] = (
+                self.img[:, :, 0] * 0.07
+                + self.img[:, :, 1] * 0.72
+                + self.img[:, :, 2] * 0.21
+            )
+            img2[:, :, idx] = (
+                self.img[:, :, 0] + self.img[:, :, 1] + self.img[:, :, 2]
+            ) / 3
+        result.extend([img1, img2])
+
+        self.display.add_img_to_window(result[0])
+        self.display.add_img_to_window(result[1])
+        self.display.show()
