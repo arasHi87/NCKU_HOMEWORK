@@ -40,3 +40,9 @@ class Process:
         self.display.add_img_to_window(result[0])
         self.display.add_img_to_window(result[1])
         self.display.show()
+
+    def blending(self):
+        img1 = cv2.imread("data/Dog_Strong.jpg")
+        img2 = cv2.imread("data/Dog_Weak.jpg")
+        self.display.add_img_to_window_with_slider(img1, img2)
+        self.display.show()

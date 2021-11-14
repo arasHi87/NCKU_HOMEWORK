@@ -59,6 +59,7 @@ class Window(QMainWindow):
                 getattr(_process, "load_img"),
                 getattr(_process, "color_seperation"),
                 getattr(_process, "color_transformations"),
+                getattr(_process, "blending"),
             ]
         ]
 
