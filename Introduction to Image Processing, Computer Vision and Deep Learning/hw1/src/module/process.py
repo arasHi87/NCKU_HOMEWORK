@@ -33,7 +33,9 @@ class Process:
                 + self.img[:, :, 2] * 0.21
             )
             img2[:, :, idx] = (
-                self.img[:, :, 0] + self.img[:, :, 1] + self.img[:, :, 2]
+                self.img[:, :, 0].astype(int)
+                + self.img[:, :, 1].astype(int)
+                + self.img[:, :, 2].astype(int)
             ) / 3
         result.extend([img1, img2])
 
