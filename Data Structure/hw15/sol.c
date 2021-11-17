@@ -22,7 +22,7 @@ void topost(int* _in, int* _pre, int len)
 void topre(int* _in, int* _post, int len)
 {
     if (len) {
-        for (int i = 0; i < len; i++) {
+        for (int i = len; i >= 0; i--) {
             if (*(_in + i) == *(_post + len - 1)) {
                 printf("%d ", *(_post + len - 1));
                 topre(_in, _post, i);
