@@ -7,3 +7,6 @@
 [submodule "Operating Systems/hw2"]
 	path = Operating Systems/hw2
 	url = https://github.com/arasHi87/OS-SimpleKVStore
+[submodule "Introduction to Image Processing, Computer Vision and Deep Learning/hw1-5"]
+	path = Introduction to Image Processing, Computer Vision and Deep Learning/hw1-5
+	url = https://github.com/arasHi87/CVDL_HW1-5
