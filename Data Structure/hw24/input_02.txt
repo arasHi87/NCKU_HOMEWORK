@@ -1,0 +1,9 @@
+red_black
+delete 0
+exist 0
+insert 0
+insert 0
+exist 0
+delete 0
+exist 0
+quit
