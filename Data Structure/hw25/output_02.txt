@@ -1,0 +1,14 @@
+add(1) = ok
+add(3) = ok
+add(5) = ok
+get(2) = not found
+get(4) = not found
+get(6) = not found
+getk(1) = 1
+getk(2) = 3
+getk(3) = 5
+getk(4) = not found
+removek(4) = not found
+removek(3) = 5
+removek(2) = 3
+removek(1) = 1

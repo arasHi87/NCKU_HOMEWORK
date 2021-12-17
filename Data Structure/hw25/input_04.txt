@@ -1,0 +1,25 @@
+24
+add 10
+add 20
+add 30
+add 40
+add 50
+add 60
+add 15
+add 25
+add 35
+add 45
+add 55
+add 65
+add 10
+add 20
+add 30
+add 40
+add 50
+add 60
+removek 2
+removek 1
+removek 2
+get 10
+getk 1
+get 20

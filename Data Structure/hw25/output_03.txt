@@ -1,0 +1,8 @@
+add(1) = ok
+add(1) = ok
+add(2) = ok
+add(2) = ok
+removek(2) = 1
+removek(1) = 1
+removek(2) = 2
+removek(1) = 2

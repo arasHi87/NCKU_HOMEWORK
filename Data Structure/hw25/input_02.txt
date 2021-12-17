@@ -1,0 +1,15 @@
+14
+add 1
+add 3
+add 5
+get 2
+get 4
+get 6
+getk 1
+getk 2
+getk 3
+getk 4
+removek 4
+removek 3
+removek 2
+removek 1

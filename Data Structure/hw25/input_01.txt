@@ -1,0 +1,13 @@
+12
+add 0
+add 10
+add 20
+get 0
+get 10
+get 20
+getk 1
+getk 2
+getk 3
+remove 10
+removek 1
+removek 1
