@@ -1,0 +1,31 @@
+insert 13
+insert 25
+insert 18
+insert 30
+insert 40
+insert 50
+insert 22
+insert 16
+insert 19
+insert 96
+delete min
+delete min
+show
+delete max
+delete max
+show
+insert 12
+insert 88
+insert 63
+insert 78
+insert 83
+delete max
+delete min
+show
+insert 55
+insert 99
+insert 45
+delete min
+delete max
+show
+quit
