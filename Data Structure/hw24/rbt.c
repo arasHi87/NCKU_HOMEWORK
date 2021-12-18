@@ -4,41 +4,35 @@
 #include <string.h>
 #include <time.h>
 
-// RBT structure
-struct rbt {
-    struct rbt* left;
-    struct rbt* right;
-    struct rbt* parent;
-    int color, data;
-};
-typedef struct rbt* RBT;
-RBT root = NULL;
-RBT neel;
-RBT newTree(int);
-void rotateRight(RBT);
-void rotateLeft(RBT);
-void toInsert(int);
-void insertFix(RBT);
-RBT search(int);
-RBT successor(RBT);
-RBT leftmost(RBT);
-void deleteRBT(int);
-void deleteFix(RBT);
+typedef struct RBTNode {
+    int color, key;
+    struct RBTNode *left, *right, *parent;
+} RBTNode;
 
-RBT newTree(int data)
+RBTNode *root = NULL, *neel;
+
+RBTNode* RBTInitNode(int key)
 {
-    RBT node = (RBT)malloc(sizeof(struct rbt));
-    node->data = data;
-    node->color = 0; // means red
+    RBTNode* node = (RBTNode*)malloc(sizeof(RBTNode));
+    node->key = key;
+    node->color = 0;
     node->left = NULL;
     node->right = NULL;
     node->parent = NULL;
     return node;
 }
 
-void rotateRight(RBT node)
+void RBTInitTree()
 {
-    RBT left = node->left;
+    neel = (RBTNode*)malloc(sizeof(RBTNode));
+    neel->color = 1;
+    neel->left = neel->right = neel->parent = NULL;
+    root = neel, root->parent = neel;
+}
+
+void RBTRightRotate(RBTNode* node)
+{
+    RBTNode* left = node->left;
     node->left = left->right;
     if (left->right != neel)
         left->right->parent = node;
@@ -53,9 +47,9 @@ void rotateRight(RBT node)
     node->parent = left;
 }
 
-void rotateLeft(RBT node)
+void RBTLeftRotate(RBTNode* node)
 {
-    RBT right = node->right;
+    RBTNode* right = node->right;
     node->right = right->left;
     if (right->left != neel)
         right->left->parent = node;
@@ -70,16 +64,57 @@ void rotateLeft(RBT node)
     node->parent = right;
 }
 
-void toInsert(int data)
+void RBTInsertFixup(RBTNode* currentNode)
 {
-    RBT x = root;
-    RBT y = neel;
-    RBT node = newTree(data);
+
+    while (currentNode->parent->color == 0) {
+        if (currentNode->parent == currentNode->parent->parent->left) {
+            RBTNode* uncle = currentNode->parent->parent->right;
+            if (uncle->color == 0) {
+                currentNode->parent->color = 1;
+                uncle->color = 1;
+                currentNode->parent->parent->color = 0;
+                currentNode = currentNode->parent->parent;
+            } else {
+                if (currentNode == currentNode->parent->right) {
+                    currentNode = currentNode->parent;
+                    RBTLeftRotate(currentNode);
+                }
+                currentNode->parent->color = 1;
+                currentNode->parent->parent->color = 0;
+                RBTRightRotate(currentNode->parent->parent);
+            }
+        } else {
+            RBTNode* uncle = currentNode->parent->parent->left;
+            if (uncle->color == 0) {
+                currentNode->parent->color = 1;
+                uncle->color = 1;
+                currentNode->parent->parent->color = 0;
+                currentNode = currentNode->parent->parent;
+            } else {
+                if (currentNode == currentNode->parent->left) {
+                    currentNode = currentNode->parent;
+                    RBTRightRotate(currentNode);
+                }
+                currentNode->parent->color = 1;
+                currentNode->parent->parent->color = 0;
+                RBTLeftRotate(currentNode->parent->parent);
+            }
+        }
+    }
+    root->color = 1;
+}
+
+void RBTInsert(int key)
+{
+    RBTNode* x = root;
+    RBTNode* y = neel;
+    RBTNode* node = RBTInitNode(key);
     while (x != neel) {
         y = x;
-        if (node->data < x->data)
+        if (node->key < x->key)
             x = x->left;
-        else if (node->data > x->data)
+        else if (node->key > x->key)
             x = x->right;
         else
             return;
@@ -87,71 +122,21 @@ void toInsert(int data)
     node->parent = y;
     if (y == neel)
         root = node;
-    else if (node->data < y->data)
+    else if (node->key < y->key)
         y->left = node;
     else
         y->right = node;
     node->left = neel;
     node->right = neel;
-    insertFix(node);
+    RBTInsertFixup(node);
     neel->parent = root;
 }
 
-void insertFix(RBT currentNode)
+RBTNode* RBTSearch(int key)
 {
-
-    while (currentNode->parent->color == 0) {
-        // parent is grand->left
-        if (currentNode->parent == currentNode->parent->parent->left) {
-            RBT uncle = currentNode->parent->parent->right;
-            // case1 : uncle is red
-            if (uncle->color == 0) {
-                currentNode->parent->color = 1;
-                uncle->color = 1;
-                currentNode->parent->parent->color = 0;
-                currentNode = currentNode->parent->parent;
-            }
-            // case2 & 3 : uncle is black
-            else {
-                if (currentNode == currentNode->parent->right) {
-                    currentNode = currentNode->parent;
-                    rotateLeft(currentNode);
-                }
-                currentNode->parent->color = 1;
-                currentNode->parent->parent->color = 0;
-                rotateRight(currentNode->parent->parent);
-            }
-        }
-        // parent is grand->right
-        else {
-            RBT uncle = currentNode->parent->parent->left;
-            // case 1 : uncle is red
-            if (uncle->color == 0) {
-                currentNode->parent->color = 1;
-                uncle->color = 1;
-                currentNode->parent->parent->color = 0;
-                currentNode = currentNode->parent->parent;
-            }
-            // case 2 & 3 : same as above
-            else {
-                if (currentNode == currentNode->parent->left) {
-                    currentNode = currentNode->parent;
-                    rotateRight(currentNode);
-                }
-                currentNode->parent->color = 1;
-                currentNode->parent->parent->color = 0;
-                rotateLeft(currentNode->parent->parent);
-            }
-        }
-    }
-    root->color = 1; // make sure root is black
-}
-
-RBT search(int key)
-{
-    RBT current = root;
-    while (current != neel && current->data != key) {
-        if (current->data > key)
+    RBTNode* current = root;
+    while (current != neel && current->key != key) {
+        if (current->key > key)
             current = current->left;
         else
             current = current->right;
@@ -162,18 +147,18 @@ RBT search(int key)
         return current;
 }
 
-RBT leftmost(RBT current)
+RBTNode* RBTLeftmost(RBTNode* current)
 {
     while (current->left != neel)
         current = current->left;
     return current;
 }
 
-RBT successor(RBT current)
+RBTNode* RBTSuccessor(RBTNode* current)
 {
     if (current->right != neel)
-        return leftmost(current->right);
-    RBT current_pt = current->parent;
+        return RBTLeftmost(current->right);
+    RBTNode* current_pt = current->parent;
     while (current_pt != neel && current == current_pt->right) {
         current = current_pt;
         current_pt = current_pt->parent;
@@ -181,16 +166,72 @@ RBT successor(RBT current)
     return current_pt;
 }
 
-void deleteRBT(int key)
+void RBTDeleteFixup(RBTNode* current)
 {
-    RBT toDelete = search(key);
+    while (current != root && current->color == 1) {
+        if (current == current->parent->left) {
+            RBTNode* sibling = current->parent->right;
+            if (sibling->color == 0) {
+                sibling->color = 1;
+                current->parent->color = 0;
+                RBTLeftRotate(current->parent);
+                sibling = current->parent->right;
+            }
+            if (sibling->left->color == 1 && sibling->right->color == 1) {
+                sibling->color = 0;
+                current = current->parent;
+            } else {
+                if (sibling->right->color == 1) {
+                    sibling->left->color = 1;
+                    sibling->color = 0;
+                    RBTRightRotate(sibling);
+                    sibling = current->parent->right;
+                }
+                sibling->color = current->parent->color;
+                current->parent->color = 1;
+                sibling->right->color = 1;
+                RBTLeftRotate(current->parent);
+                current = root;
+            }
+        } else {
+            RBTNode* sibling = current->parent->left;
+            if (sibling->color == 0) {
+                sibling->color = 1;
+                current->parent->color = 0;
+                RBTRightRotate(current->parent);
+                sibling = current->parent->left;
+            }
+            if (sibling->left->color == 1 && sibling->right->color == 1) {
+                sibling->color = 0;
+                current = current->parent;
+            } else {
+                if (sibling->left->color == 1) {
+                    sibling->right->color = 1;
+                    sibling->color = 0;
+                    RBTLeftRotate(sibling);
+                    sibling = current->parent->left;
+                }
+                sibling->color = current->parent->color;
+                current->parent->color = 1;
+                sibling->left->color = 1;
+                RBTRightRotate(current->parent);
+                current = root;
+            }
+        }
+    }
+    current->color = 1;
+}
+
+void RBTDelete(int key)
+{
+    RBTNode* toDelete = RBTSearch(key);
     if (toDelete == NULL)
         return;
-    RBT x, y;
+    RBTNode *x, *y;
     if (toDelete->left == neel || toDelete->right == neel)
         y = toDelete;
     else
-        y = successor(toDelete);
+        y = RBTSuccessor(toDelete);
     if (y->left != neel)
         x = y->left;
     else
@@ -206,91 +247,35 @@ void deleteRBT(int key)
         y->parent->right = x;
 
     if (y != toDelete)
-        toDelete->data = y->data;
+        toDelete->key = y->key;
 
     if (y->color == 1)
-        deleteFix(x);
+        RBTDeleteFixup(x);
     neel->parent = root;
-}
-
-void deleteFix(RBT current)
-{
-    while (current != root && current->color == 1) {
-        if (current == current->parent->left) {
-            RBT sibling = current->parent->right;
-            if (sibling->color == 0) {
-                sibling->color = 1;
-                current->parent->color = 0;
-                rotateLeft(current->parent);
-                sibling = current->parent->right;
-            }
-            if (sibling->left->color == 1 && sibling->right->color == 1) {
-                sibling->color = 0;
-                current = current->parent;
-            } else {
-                if (sibling->right->color == 1) {
-                    sibling->left->color = 1;
-                    sibling->color = 0;
-                    rotateRight(sibling);
-                    sibling = current->parent->right;
-                }
-                sibling->color = current->parent->color;
-                current->parent->color = 1;
-                sibling->right->color = 1;
-                rotateLeft(current->parent);
-                current = root;
-            }
-        } else {
-            RBT sibling = current->parent->left;
-            if (sibling->color == 0) {
-                sibling->color = 1;
-                current->parent->color = 0;
-                rotateRight(current->parent);
-                sibling = current->parent->left;
-            }
-            if (sibling->left->color == 1 && sibling->right->color == 1) {
-                sibling->color = 0;
-                current = current->parent;
-            } else {
-                if (sibling->left->color == 1) {
-                    sibling->right->color = 1;
-                    sibling->color = 0;
-                    rotateLeft(sibling);
-                    sibling = current->parent->left;
-                }
-                sibling->color = current->parent->color;
-                current->parent->color = 1;
-                sibling->left->color = 1;
-                rotateRight(current->parent);
-                current = root;
-            }
-        }
-    }
-    current->color = 1;
 }
 
 // int main()
 // {
-//     neel = (RBT)malloc(sizeof(struct rbt));
+//     neel = (RBTNode*)malloc(sizeof(struct rbt));
 //     neel->color = 1;
 //     neel->left = NULL;
 //     neel->right = NULL;
 //     neel->parent = NULL;
 //     root = neel;
 //     root->parent = neel;
-//     // 0->insert 1->delete 2->search
+//     // 0->insert 1->delete 2->RBTSearch
 //     int n, t;
 //     scanf("%d", &n);
 //     for (int i = 1, x; i <= n; i++)
-//         scanf("%d", &x), toInsert(x);
+//         scanf("%d", &x), RBTInsert(x);
 //     scanf("%d", &t);
 //     for (int i = 1, x; i <= t; i++) {
 //         scanf("%d", &x);
 //         if (x == 0)
-//             scanf("%d", &x), toInsert(x);
+//             scanf("%d", &x), RBTInsert(x);
 //         if (x == 1)
-//             scanf("%d", &x), deleteRBT(x);
+//             scanf("%d", &x), RBTDeleteNode*(x);
 //         if (x == 2)
-//             scanf("%d", &x), search(x);
+//             scanf("%d", &x), RBTSearch(x);
 //     }
 // }
