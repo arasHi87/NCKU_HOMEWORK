@@ -1,0 +1,34 @@
+insert 1 1001
+insert 2 1002
+insert 100 1001
+delete 100 1001
+insert 3 1003
+insert 4 1004
+insert 100 1001
+delete 100 1001
+insert 5 1005
+insert 6 1006
+insert 100 1001
+delete 100 1001
+insert 7 1007
+insert 8 1008
+insert 100 1001
+delete 100 1001
+delete 6 1006
+delete 7 1007
+decrease 4 1004 1000
+extract
+extract
+extract
+extract
+extract
+extract
+extract
+insert 1 7
+insert 1 9
+insert 1 13
+delete 1 13
+delete 1 7
+extract
+extract
+quit
