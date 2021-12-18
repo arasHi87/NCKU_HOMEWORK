@@ -3,16 +3,16 @@
 #include <stdlib.h>
 #include <string.h>
 
-typedef struct Node {
+typedef struct AVLNode {
     int data, bf;
-    struct Node *left, *right;
-} Node;
+    struct AVLNode *left, *right;
+} AVLNode;
 
 bool balanced;
 
-void AVLLeftRotate(Node** root, bool isInsert)
+void AVLLeftRotate(AVLNode** root, bool isInsert)
 {
-    Node *node = *root, *child = node->left;
+    AVLNode *node = *root, *child = node->left;
     if (isInsert)
         balanced = true;
 
@@ -27,7 +27,7 @@ void AVLLeftRotate(Node** root, bool isInsert)
             child->bf = node->bf = 0;
         (*root) = child;
     } else {
-        Node* grand = child->right;
+        AVLNode* grand = child->right;
         child->right = grand->left;
         grand->left = child;
         node->left = grand->right;
@@ -50,9 +50,9 @@ void AVLLeftRotate(Node** root, bool isInsert)
     }
 }
 
-void AVLRightRotate(Node** root, bool isInsert)
+void AVLRightRotate(AVLNode** root, bool isInsert)
 {
-    Node *node = *root, *child = node->right;
+    AVLNode *node = *root, *child = node->right;
     if (isInsert)
         balanced = true;
 
@@ -67,7 +67,7 @@ void AVLRightRotate(Node** root, bool isInsert)
             child->bf = node->bf = 0;
         (*root) = child;
     } else {
-        Node* grand = child->left;
+        AVLNode* grand = child->left;
         child->left = grand->right;
         grand->right = child;
         node->right = grand->left;
@@ -90,16 +90,16 @@ void AVLRightRotate(Node** root, bool isInsert)
     }
 }
 
-void AVLInsert(Node** root, int data)
+void AVLInsert(AVLNode** root, int data)
 {
     if (!*root) {
-        *root = (Node*)malloc(sizeof(Node));
+        *root = (AVLNode*)malloc(sizeof(AVLNode));
         (*root)->left = (*root)->right = NULL;
         (*root)->bf = 0;
         (*root)->data = data;
         balanced = false;
     } else if (data < (*root)->data) {
-        Node* node = *root;
+        AVLNode* node = *root;
         AVLInsert(&(node->left), data);
         if (!balanced)
             switch (node->bf) {
@@ -115,7 +115,7 @@ void AVLInsert(Node** root, int data)
                 break;
             }
     } else if (data > (*root)->data) {
-        Node* node = *root;
+        AVLNode* node = *root;
         AVLInsert(&(node->right), data);
         if (!balanced)
             switch (node->bf) {
@@ -133,9 +133,9 @@ void AVLInsert(Node** root, int data)
     }
 }
 
-void AVLExist(Node* root, int targ)
+void AVLExist(AVLNode* root, int targ)
 {
-    for (Node* now = root; now; now = (targ > now->data) ? now->right : now->left)
+    for (AVLNode* now = root; now; now = (targ > now->data) ? now->right : now->left)
         if (targ == now->data) {
             printf("exist\n");
             return;
@@ -143,17 +143,17 @@ void AVLExist(Node* root, int targ)
     printf("Not exist\n");
 }
 
-int AVLFindReplace(Node* n)
+int AVLFindReplace(AVLNode* n)
 {
-    Node* ans = n->left;
+    AVLNode* ans = n->left;
     while (ans->right)
         ans = ans->right;
     return ans->data;
 }
 
-void AVLDelete(Node** root, int targ)
+void AVLDelete(AVLNode** root, int targ)
 {
-    Node* node = *root;
+    AVLNode* node = *root;
     if (!node)
         return;
     if (node->data == targ) {
@@ -198,9 +198,9 @@ void AVLDelete(Node** root, int targ)
     }
 }
 
-void AVLSearch(Node* root, int targ)
+void AVLSearch(AVLNode* root, int targ)
 {
-    for (Node* now = root; now; now = (targ > now->data) ? now->right : now->left)
+    for (AVLNode* now = root; now; now = (targ > now->data) ? now->right : now->left)
         if (targ == now->data) {
             printf("%d\n", now->bf);
             return;

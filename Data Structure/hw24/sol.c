@@ -31,7 +31,7 @@ int main()
                 return 0;
         }
     } else {
-        Node* root = NULL;
+        AVLNode* root = NULL;
         while (~scanf("%s", opt)) {
             if (!strcmp(opt, "insert")) {
                 scanf("%d", &x), AVLInsert(&root, x);
