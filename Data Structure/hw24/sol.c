@@ -30,19 +30,19 @@ int main()
             } else
                 return 0;
         }
-        // } else {
-        //     NODE root = NULL;
-        //     while (~scanf("%s", opt)) {
-        //         if (!strcmp(opt, "insert")) {
-        //             scanf("%d", &x), insert(root, x);
-        //         } else if (!strcmp(opt, "search")) {
-        //             scanf("%d", &x), avlsearch(root, x);
-        //         } else if (!strcmp(opt, "delete")) {
-        //             scanf("%d", &x), destroy(root, x);
-        //         } else if (!strcmp(opt, "exist")) {
-        //             scanf("%d", &x), exist(root, x);
-        //         } else
-        //             return 0;
-        //     }
+    } else {
+        Node* root = NULL;
+        while (~scanf("%s", opt)) {
+            if (!strcmp(opt, "insert")) {
+                scanf("%d", &x), AVLInsert(&root, x);
+            } else if (!strcmp(opt, "search")) {
+                scanf("%d", &x), AVLSearch(root, x);
+            } else if (!strcmp(opt, "delete")) {
+                scanf("%d", &x), AVLDelete(&root, x);
+            } else if (!strcmp(opt, "exist")) {
+                scanf("%d", &x), AVLExist(root, x);
+            } else
+                return 0;
+        }
     }
 }
