@@ -66,6 +66,7 @@ class Window(QWidget):
             getattr(self.calibration, "find_corner"),
             getattr(self.calibration, "find_intrinsic"),
             getattr(self.calibration, "find_extrinsic"),
+            getattr(self.calibration, "find_distortion"),
         ]
 
         if i < len(func):

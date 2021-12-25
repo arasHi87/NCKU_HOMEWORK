@@ -13,6 +13,7 @@ class Calibration:
         self.grayimg = []
         self.rvecs = ""
         self.tvecs = ""
+        self.dist = ""
 
     def find_corner(self):
         criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 30, 0.001)
@@ -41,7 +42,7 @@ class Calibration:
         plt.show()
 
     def find_intrinsic(self):
-        _, mtx, _, self.rvecs, self.tvecs = cv2.calibrateCamera(
+        _, mtx, self.dist, self.rvecs, self.tvecs = cv2.calibrateCamera(
             self.objpts, self.imgpts, self.grayimg[0].shape[::-1], None, None
         )
         print("intrinsic matrix:\n", mtx, "\n")
@@ -53,3 +54,6 @@ class Calibration:
         for i in range(3):
             extrinsic_mtx[i][3] = self.tvecs[index][i][0]
         print(str(index + 1) + ".bmp extrinsic matrix:\n", extrinsic_mtx, "\n")
+
+    def find_distortion(self):
+        print("distortion matrix:\n", self.dist, "\n")
