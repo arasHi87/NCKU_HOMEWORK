@@ -14,6 +14,7 @@ from PyQt5.QtWidgets import (
 class Window(QWidget):
     def __init__(self):
         super().__init__()
+        self.calibration = Calibration()
 
         # layout setting
         height = 400
@@ -61,9 +62,9 @@ class Window(QWidget):
         self.layout.addWidget(g_box)
 
     def _executor(self, i):
-        _calibration = Calibration()
         func = [
-            getattr(_calibration, "find_corner"),
+            getattr(self.calibration, "find_corner"),
+            getattr(self.calibration, "find_intrinsic"),
         ]
 
         if i < len(func):
