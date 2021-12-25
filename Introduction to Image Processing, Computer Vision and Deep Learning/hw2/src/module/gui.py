@@ -65,7 +65,11 @@ class Window(QWidget):
         func = [
             getattr(self.calibration, "find_corner"),
             getattr(self.calibration, "find_intrinsic"),
+            getattr(self.calibration, "find_extrinsic"),
         ]
 
         if i < len(func):
-            func[i]()
+            if i == 2:
+                func[i](self.combobox.currentIndex())
+            else:
+                func[i]()
