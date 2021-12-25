@@ -1,4 +1,5 @@
 from functools import partial
+from .calibration import Calibration
 
 from PyQt5.QtWidgets import (
     QComboBox,
@@ -60,7 +61,10 @@ class Window(QWidget):
         self.layout.addWidget(g_box)
 
     def _executor(self, i):
-        func = []
+        _calibration = Calibration()
+        func = [
+            getattr(_calibration, "find_corner"),
+        ]
 
         if i < len(func):
             func[i]()
