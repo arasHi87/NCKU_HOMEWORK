@@ -1,8 +1,8 @@
-import cv2
 import os
 
-import numpy as np
+import cv2
 import matplotlib.pyplot as plt
+import numpy as np
 
 
 class Calibration:
@@ -57,3 +57,32 @@ class Calibration:
 
     def find_distortion(self):
         print("distortion matrix:\n", self.dist, "\n")
+
+    def show_result(self):
+        plt.figure("2.5 Show Result")
+        plt.subplots_adjust(left=0, bottom=0, right=1, top=1, wspace=0, hspace=0)
+
+        for i in range(1, 16):
+            _, mtx, dist, _, _ = cv2.calibrateCamera(
+                self.objpts, self.imgpts, self.grayimg[i - 1].shape[::-1], None, None
+            )
+            b_img = cv2.imread(
+                os.path.join(self.data, "{}.bmp".format(i)), cv2.IMREAD_COLOR
+            )
+            h, w = b_img.shape[:2]
+            newcameramtx, roi = cv2.getOptimalNewCameraMatrix(
+                mtx, dist, (w, h), 0, (w, h)
+            )
+            a_img = cv2.undistort(b_img, mtx, dist, None, newcameramtx)
+            x, y, w, h = roi
+            a_img = a_img[y : y + h, x : x + w]
+
+            plt.subplot(3, 10, i * 2 - 1)
+            plt.axis("off")
+            plt.imshow(b_img)
+
+            plt.subplot(3, 10, i * 2)
+            plt.axis("off")
+            plt.imshow(a_img)
+        plt.axis("off")
+        plt.show()
