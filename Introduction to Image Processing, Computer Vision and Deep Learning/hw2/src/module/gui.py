@@ -35,7 +35,7 @@ class Window(QWidget):
         msg = [
             "2.1 Find Corner",
             "2.2 Find Intrinsic",
-            "2.3 Find extrinsic",
+            "2.3 Find Extrinsic",
             "2.4 Find Distortion",
             "2.5 Show Result",
         ]
