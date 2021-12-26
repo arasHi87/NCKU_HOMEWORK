@@ -32,7 +32,7 @@ class Window(QWidget):
 
         # main group box
         v_layout = QVBoxLayout()
-        g_box = QGroupBox("2. Classification")
+        g_box = QGroupBox("5. Classification")
 
         for i in range(len(msg)):
             btn = QPushButton(msg[i], self)
