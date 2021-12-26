@@ -1,12 +1,15 @@
 from functools import partial
 
-from PyQt5.QtWidgets import (QSpinBox, QGroupBox, QHBoxLayout, QPushButton,
+from PyQt5.QtWidgets import (QGroupBox, QHBoxLayout, QPushButton, QSpinBox,
                              QVBoxLayout, QWidget)
+
+from .train import Train
 
 
 class Window(QWidget):
     def __init__(self):
         super().__init__()
+        self.train = Train()
 
         # layout setting
         height = 400
@@ -45,7 +48,7 @@ class Window(QWidget):
         self.layout.addWidget(g_box)
 
     def _executor(self, i):
-        func = []
+        func = [getattr(self.train, "show_model")]
 
         if i < len(func):
             if i == 2:
