@@ -58,6 +58,7 @@ class Window(QWidget):
             getattr(self.train, "show_model"),
             getattr(self.train, "show_board"),
             getattr(self.train, "show_test"),
+            getattr(self.train, "show_augmantation"),
         ]
 
         if i < len(func):

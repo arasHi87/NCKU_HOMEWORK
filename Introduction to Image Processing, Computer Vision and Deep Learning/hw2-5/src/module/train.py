@@ -102,3 +102,9 @@ class Train:
             plt.title("Class:dog")
         plt.imshow(img)
         plt.show()
+
+    def show_augmantation(self):
+        img = plt.imread(f"data/result.png")
+        plt.axis("off")
+        plt.imshow(img)
+        plt.show()
