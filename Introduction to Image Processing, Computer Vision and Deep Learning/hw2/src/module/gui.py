@@ -1,14 +1,9 @@
 from functools import partial
-from .calibration import Calibration
 
-from PyQt5.QtWidgets import (
-    QComboBox,
-    QGroupBox,
-    QHBoxLayout,
-    QPushButton,
-    QVBoxLayout,
-    QWidget,
-)
+from PyQt5.QtWidgets import (QComboBox, QGroupBox, QHBoxLayout, QPushButton,
+                             QVBoxLayout, QWidget)
+
+from .calibration import Calibration
 
 
 class Window(QWidget):
