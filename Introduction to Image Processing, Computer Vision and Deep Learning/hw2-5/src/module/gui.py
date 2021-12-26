@@ -54,7 +54,11 @@ class Window(QWidget):
         self.layout.addWidget(g_box)
 
     def _executor(self, i):
-        func = [getattr(self.train, "show_model"), getattr(self.train, "show_board")]
+        func = [
+            getattr(self.train, "show_model"),
+            getattr(self.train, "show_board"),
+            getattr(self.train, "show_test"),
+        ]
 
         if i < len(func):
             if i == 2:
