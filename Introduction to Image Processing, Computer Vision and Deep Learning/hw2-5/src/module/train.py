@@ -68,3 +68,9 @@ class Train:
         net = Model(inputs=net.input, outputs=outputLayer)
         net.compile(optimizer=Adam(lr=1e-5), loss='categorical_crossentropy', metrics=['accuracy'])
         net.summary()
+
+    def show_board(self):
+        img = plt.imread(f"data/board.png")
+        plt.axis("off")
+        plt.imshow(img)
+        plt.show()

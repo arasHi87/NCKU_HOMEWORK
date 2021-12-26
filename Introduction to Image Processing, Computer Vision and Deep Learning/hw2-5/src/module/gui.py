@@ -1,7 +1,13 @@
 from functools import partial
 
-from PyQt5.QtWidgets import (QGroupBox, QHBoxLayout, QPushButton, QSpinBox,
-                             QVBoxLayout, QWidget)
+from PyQt5.QtWidgets import (
+    QGroupBox,
+    QHBoxLayout,
+    QPushButton,
+    QSpinBox,
+    QVBoxLayout,
+    QWidget,
+)
 
 from .train import Train
 
@@ -30,7 +36,7 @@ class Window(QWidget):
             "1. Show Model Structure",
             "2. Show TensorBoard",
             "3. Test",
-            "4. Data Augmantation"
+            "4. Data Augmantation",
         ]
 
         # main group box
@@ -48,7 +54,7 @@ class Window(QWidget):
         self.layout.addWidget(g_box)
 
     def _executor(self, i):
-        func = [getattr(self.train, "show_model")]
+        func = [getattr(self.train, "show_model"), getattr(self.train, "show_board")]
 
         if i < len(func):
             if i == 2:
