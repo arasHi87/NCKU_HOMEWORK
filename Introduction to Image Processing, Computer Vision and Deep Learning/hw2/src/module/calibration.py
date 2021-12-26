@@ -19,9 +19,6 @@ class Calibration:
         criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 30, 0.001)
         objp = np.zeros((8 * 11, 3), np.float32)
         objp[:, :2] = np.mgrid[0:8, 0:11].T.reshape(-1, 2)
-
-        plt.figure("2.1 Find Corners")
-        plt.subplots_adjust(left=0, bottom=0, right=1, top=1, wspace=0, hspace=0.01)
         for i in range(1, 16):
             img = cv2.imread(
                 os.path.join(self.data, "{}.bmp".format(i)), cv2.IMREAD_COLOR
@@ -36,10 +33,9 @@ class Calibration:
                 )
                 self.imgpts.append(corners2)
                 cv2.drawChessboardCorners(img, (8, 11), corners2, ret)
-                plt.subplot(3, 5, i)
-                plt.axis("off")
-                plt.imshow(img)
-        plt.show()
+                cv2.imshow("image", cv2.resize(img, (800, 800)))
+                cv2.waitKey(500)
+        cv2.destroyAllWindows()
 
     def find_intrinsic(self):
         _, mtx, self.dist, self.rvecs, self.tvecs = cv2.calibrateCamera(
@@ -59,9 +55,6 @@ class Calibration:
         print("distortion matrix:\n", self.dist, "\n")
 
     def show_result(self):
-        plt.figure("2.5 Show Result")
-        plt.subplots_adjust(left=0, bottom=0, right=1, top=1, wspace=0, hspace=0)
-
         for i in range(1, 16):
             _, mtx, dist, _, _ = cv2.calibrateCamera(
                 self.objpts, self.imgpts, self.grayimg[i - 1].shape[::-1], None, None
@@ -76,13 +69,8 @@ class Calibration:
             a_img = cv2.undistort(b_img, mtx, dist, None, newcameramtx)
             x, y, w, h = roi
             a_img = a_img[y : y + h, x : x + w]
-
-            plt.subplot(3, 10, i * 2 - 1)
-            plt.axis("off")
-            plt.imshow(b_img)
-
-            plt.subplot(3, 10, i * 2)
-            plt.axis("off")
-            plt.imshow(a_img)
-        plt.axis("off")
-        plt.show()
+            b_img = cv2.resize(b_img, (800, 800))
+            a_img = cv2.resize(a_img, (800, 800))
+            cv2.imshow("image", np.concatenate((b_img, a_img), axis=1))
+            cv2.waitKey(500)
+        cv2.destroyAllWindows()
