@@ -256,7 +256,7 @@ void RBTDelete(int key)
 
 // int main()
 // {
-//     neel = (RBTNode*)malloc(sizeof(struct rbt));
+//     neel = (RBTNode*)malloc(sizeof(RBTNode));
 //     neel->color = 1;
 //     neel->left = NULL;
 //     neel->right = NULL;
@@ -274,7 +274,7 @@ void RBTDelete(int key)
 //         if (x == 0)
 //             scanf("%d", &x), RBTInsert(x);
 //         if (x == 1)
-//             scanf("%d", &x), RBTDeleteNode*(x);
+//             scanf("%d", &x), RBTDelete(x);
 //         if (x == 2)
 //             scanf("%d", &x), RBTSearch(x);
 //     }

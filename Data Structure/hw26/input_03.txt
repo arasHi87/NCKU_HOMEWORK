@@ -1,0 +1,31 @@
+30
+remove 2
+range-search 5 8
+remove 2
+remove 9
+add 7
+remove 2
+add 6
+add 6
+range-search 6 7
+add 9
+add 6
+range-search 3 9
+add 0
+remove 0
+remove 5
+remove 4
+range-search 3 8
+remove 3
+remove 4
+range-search 5 7
+remove 0
+remove 1
+add 5
+add 7
+add 6
+add 4
+add 8
+range-search 6 7
+range-search 6 6
+range-search 0 0

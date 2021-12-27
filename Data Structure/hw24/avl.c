@@ -207,3 +207,23 @@ void AVLSearch(AVLNode* root, int targ)
         }
     printf("Not found\n");
 }
+
+// int main()
+// {
+//     // 0->insert 1->delete 2->search
+//     AVLNode* root = NULL;
+//     int n, t;
+//     scanf("%d", &n);
+//     for (int i = 1, x; i <= n; i++)
+//         scanf("%d", &x), AVLInsert(&root, x);
+//     scanf("%d", &t);
+//     for (int i = 1, x; i <= t; i++) {
+//         scanf("%d", &x);
+//         if (x == 0)
+//             scanf("%d", &x), AVLInsert(&root, x);
+//         if (x == 1)
+//             scanf("%d", &x), AVLDelete(&root, x);
+//         if (x == 2)
+//             scanf("%d", &x), AVLSearch(root, x);
+//     }
+// }
