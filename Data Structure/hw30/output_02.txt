@@ -1,0 +1,6 @@
+insert -> 1
+insert -> conflict
+search -> 1
+delete -> 1
+search -> not found
+delete -> not found

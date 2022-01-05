@@ -1,0 +1,17 @@
+3
+delete 100
+insert 111 6
+insert 011 8
+insert 010 3
+insert 001 2
+insert 110 1
+search 111
+delete 110
+insert 000 10
+insert 001 7
+insert 101 7
+search 111
+insert 010 9
+search 100
+insert 101 0
+quit

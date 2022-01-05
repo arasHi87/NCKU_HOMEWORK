@@ -1,0 +1,5 @@
+7
+insert 0010100 1
+search 0010100
+delete 0010100
+quit

@@ -1,0 +1,100 @@
+insert -> 6898
+insert -> 7985
+search -> not found
+insert -> 8509
+insert -> 5345
+insert -> 1963
+insert -> 3331
+insert -> 4282
+insert -> 359
+insert -> 2218
+insert -> 7328
+insert -> 7874
+insert -> 3755
+insert -> 8733
+search -> not found
+search -> not found
+insert -> 137
+insert -> 9239
+insert -> 7631
+search -> not found
+insert -> 6756
+search -> not found
+insert -> 6562
+search -> not found
+search -> 9239
+insert -> 7082
+insert -> 275
+search -> not found
+insert -> conflict
+insert -> 998
+insert -> 3615
+insert -> conflict
+insert -> 9332
+delete -> 7082
+insert -> 3303
+insert -> 4753
+insert -> 5453
+search -> 275
+insert -> conflict
+delete -> not found
+search -> not found
+search -> not found
+delete -> not found
+insert -> 6951
+insert -> 8524
+insert -> 7473
+search -> not found
+insert -> 3074
+insert -> 3301
+insert -> 4447
+delete -> 3301
+insert -> 9392
+insert -> 9865
+insert -> 4840
+insert -> conflict
+insert -> 3519
+insert -> conflict
+insert -> 8904
+insert -> conflict
+insert -> 5462
+insert -> conflict
+search -> not found
+search -> 275
+search -> not found
+insert -> 2803
+insert -> 2043
+insert -> 6327
+insert -> 3948
+insert -> 4225
+insert -> conflict
+insert -> 3589
+insert -> 3074
+insert -> 7938
+insert -> conflict
+insert -> 695
+insert -> 5980
+insert -> conflict
+insert -> 2127
+insert -> conflict
+insert -> conflict
+insert -> 914
+insert -> 8164
+insert -> 3746
+insert -> 4770
+insert -> 3743
+insert -> 5668
+insert -> conflict
+insert -> conflict
+insert -> conflict
+insert -> 5310
+insert -> 9672
+insert -> 3504
+insert -> conflict
+insert -> 9224
+insert -> conflict
+insert -> conflict
+delete -> not found
+delete -> 4840
+insert -> 678
+insert -> conflict

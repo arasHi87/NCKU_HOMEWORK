@@ -1,0 +1,15 @@
+delete -> not found
+insert -> 6
+insert -> 8
+insert -> 3
+insert -> 2
+insert -> 1
+search -> 6
+delete -> 1
+insert -> 10
+insert -> conflict
+insert -> 7
+search -> 6
+insert -> conflict
+search -> not found
+insert -> conflict
