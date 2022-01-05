@@ -3,6 +3,8 @@
 #define maxN 1000000
 #define swap(x, y) ((x) ^= (y) ^= (x) ^= (y))
 
+int min(int x, int y) { return x < y ? x : y; }
+
 void InsertSort(int* arr, int len)
 {
     int tmp;
@@ -35,24 +37,35 @@ void QuickSort(int* arr, int L, int R)
     }
 }
 
-void MergeSort(int* arr, int L, int R)
+void _merge(int* arr, int L, int R, int mid)
 {
-    int mid, *tmp = (int*)malloc(sizeof(int) * (R - L + 1));
-    if (L < R) {
-        mid = (L + R) >> 1;
-        MergeSort(arr, L, mid);
-        MergeSort(arr, mid + 1, R);
+    int* tmp = (int*)malloc(sizeof(int) * (R - L + 1));
+    int idx = 0, p1 = L, p2 = mid + 1;
+    while (p1 <= mid && p2 <= R)
+        tmp[idx++] = (arr[p1] < arr[p2] ? arr[p1++] : arr[p2++]);
+    while (p1 <= mid)
+        tmp[idx++] = arr[p1++];
+    while (p2 <= R)
+        tmp[idx++] = arr[p2++];
+    for (int i = 0; i < idx; i++)
+        arr[L + i] = tmp[i];
+}
 
-        int idx = 0, p1 = L, p2 = mid + 1;
-        while (p1 <= mid && p2 <= R)
-            tmp[idx++] = (arr[p1] < arr[p2] ? arr[p1++] : arr[p2++]);
-        while (p1 <= mid)
-            tmp[idx++] = arr[p1++];
-        while (p2 <= R)
-            tmp[idx++] = arr[p2++];
-        for (int i = 0; i < idx; i++)
-            arr[L + i] = tmp[i];
+void RMergeSort(int* arr, int L, int R)
+{
+    if (L < R) {
+        int mid = (L + R) >> 1;
+        RMergeSort(arr, L, mid);
+        RMergeSort(arr, mid + 1, R);
+        _merge(arr, L, R, mid);
     }
+}
+
+void IMergeSort(int* arr, int L, int R)
+{
+    for (int i = 1; i <= R - L; i <<= 1)
+        for (int j = L; j <= R; j += i << 1)
+            _merge(arr, j, min(j + (i << 1) - 1, R), j + i - 1);
 }
 
 void Heapfy(int* arr, int idx, int len)
@@ -91,8 +104,10 @@ int main()
     if (t == 1)
         QuickSort(arr, 1, idx);
     if (t == 2)
-        MergeSort(arr, 1, idx);
+        RMergeSort(arr, 1, idx);
     if (t == 3)
+        IMergeSort(arr, 1, idx);
+    if (t == 4)
         HeapSort(arr, idx);
 
     for (int i = 1; i <= idx; i++)
