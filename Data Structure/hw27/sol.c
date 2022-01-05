@@ -7,16 +7,11 @@ int min(int x, int y) { return x < y ? x : y; }
 
 void InsertSort(int* arr, int len)
 {
-    int tmp;
-    for (int i = 2; i <= len; i++) {
-        tmp = arr[i];
-        for (int j = i - 1; j >= 0; j--)
-            if (tmp < arr[j])
-                arr[j + 1] = arr[j];
-            else {
-                arr[j + 1] = tmp;
-                break;
-            }
+    for (int i = 2, tmp, j; i <= len; i++) {
+        j = i - 1, tmp = arr[i];
+        while (j && arr[j] > tmp)
+            arr[j + 1] = arr[j], j--;
+        arr[j + 1] = tmp;
     }
 }
 
