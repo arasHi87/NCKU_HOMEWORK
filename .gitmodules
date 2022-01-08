@@ -13,3 +13,6 @@
 [submodule "Operating Systems/hw3"]
 	path = Operating Systems/hw3
 	url = https://github.com/arasHi87/OS-Thread-Scheduler
+[submodule "Operating Systems/hw4"]
+	path = Operating Systems/hw4
+	url = https://github.com/arasHi87/OS-MemoryManager
