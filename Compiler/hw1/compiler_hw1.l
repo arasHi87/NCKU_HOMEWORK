@@ -38,9 +38,9 @@ cpp_comment ((\/\/){string_lit})
 /* Rules section */
 %%
 
-((\/\*)(.)*(\*\/)) { print_token("C Comment"); comment_num++; }
+((\/\*)(.)*(\*\/))        { print_token("C Comment"); comment_num++; }
 ((\/\*)([^\*\/\n])*(\n))  { print_token("C Comment"); comment_num++; ++line_num; BEGIN(C_COMMENT); }
-{cpp_comment}      { print_token("C++ Comment"); comment_num++; }     
+{cpp_comment}             { print_token("C++ Comment"); comment_num++; }     
 
 "+"         { print_token("ADD"); }
 "-"         { print_token("SUB"); }
