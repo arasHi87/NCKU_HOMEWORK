@@ -1,0 +1,47 @@
+package  	 PACKAGE
+main     	 IDENT
+         	 NEWLINE
+         	 NEWLINE
+func     	 FUNC
+main     	 IDENT
+(        	 LPAREN
+)        	 RPAREN
+{        	 LBRACE
+         	 NEWLINE
+var      	 VAR
+x        	 IDENT
+int32    	 INT
+=        	 ASSIGN
+0        	 INT_LIT
+         	 NEWLINE
+// this is a comment // line */ /* with /* delimiters */ before the end 	 C++ Comment
+         	 NEWLINE
+/* this is a comment // line with some /* and C delimiters */       	 C Comment
+         	 NEWLINE
+if       	 IF
+x        	 IDENT
+==       	 EQL
+0        	 INT_LIT
+{        	 LBRACE
+/* if */       	 C Comment
+         	 NEWLINE
+println  	 PRINTLN
+(        	 LPAREN
+"        	 QUOTA
+Hello    	 STRING_LIT
+"        	 QUOTA
+)        	 RPAREN
+         	 NEWLINE
+/* print
+        	 C Comment
+		a Hello with
+        	 C Comment
+		newline */       	 C Comment
+         	 NEWLINE
+}        	 RBRACE
+         	 NEWLINE
+}        	 RBRACE
+
+Finish scanning,
+total line: 13
+comment line: 6

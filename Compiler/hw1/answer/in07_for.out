@@ -1,0 +1,41 @@
+package  	 PACKAGE
+main     	 IDENT
+         	 NEWLINE
+         	 NEWLINE
+func     	 FUNC
+main     	 IDENT
+(        	 LPAREN
+)        	 RPAREN
+{        	 LBRACE
+         	 NEWLINE
+var      	 VAR
+x        	 IDENT
+int32    	 INT
+=        	 ASSIGN
+0        	 INT_LIT
+         	 NEWLINE
+x        	 IDENT
++=       	 ADD_ASSIGN
+10       	 INT_LIT
+         	 NEWLINE
+for      	 FOR
+x        	 IDENT
+>        	 GTR
+0        	 INT_LIT
+{        	 LBRACE
+         	 NEWLINE
+println  	 PRINTLN
+(        	 LPAREN
+x        	 IDENT
+)        	 RPAREN
+         	 NEWLINE
+x        	 IDENT
+--       	 DEC
+         	 NEWLINE
+}        	 RBRACE
+         	 NEWLINE
+}        	 RBRACE
+
+Finish scanning,
+total line: 10
+comment line: 0
