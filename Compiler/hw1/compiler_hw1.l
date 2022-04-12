@@ -12,6 +12,8 @@
     #define YY_NO_INPUT
     #define print_token(token) \
         printf("%-8s \t %s\n", strcmp(token, "NEWLINE")? yytext: "", token)
+    #define print_comment_token(token, space) \
+        printf("%-8s%s \t %s\n", yytext, space, token)
 
     int line_num = 0;
     int comment_num = 0;
@@ -38,8 +40,8 @@ cpp_comment ((\/\/){string_lit})
 /* Rules section */
 %%
 
-((\/\*)(.)*(\*\/))        { print_token("C Comment"); comment_num++; }
-((\/\*)([^\*\/\n])*(\n))  { print_token("C Comment"); comment_num++; ++line_num; BEGIN(C_COMMENT); }
+((\/\*)(.)*(\*\/))        { print_comment_token("C Comment", "      "); comment_num++; }
+((\/\*)([^\*\/\n])*(\n))  { print_comment_token("C Comment", "       "); comment_num++; ++line_num; BEGIN(C_COMMENT); }
 {cpp_comment}             { print_token("C++ Comment"); comment_num++; }     
 
 "+"         { print_token("ADD"); }
@@ -102,8 +104,8 @@ cpp_comment ((\/\/){string_lit})
 <STR>{string_lit} { print_token("STRING_LIT"); }
 <STR>"\""         { print_token("QUOTA"); BEGIN(INITIAL); }
 
-<C_COMMENT>((.)(\n))   { print_token("C Comment"); comment_num++; ++line_num; }
-<C_COMMENT>((.)(\*\/)) { print_token("C Comment"); comment_num++; BEGIN(INITIAL); }
+<C_COMMENT>((.)(\n))   { print_comment_token("C Comment", " "); comment_num++; ++line_num; }
+<C_COMMENT>((.)(\*\/)) { print_comment_token("C Comment", " "); comment_num++; BEGIN(INITIAL); }
 
 {id}        { print_token("IDENT"); }
 

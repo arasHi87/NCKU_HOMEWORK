@@ -601,6 +601,8 @@ char *yytext;
     #define YY_NO_INPUT
     #define print_token(token) \
         printf("%-8s \t %s\n", strcmp(token, "NEWLINE")? yytext: "", token)
+    #define print_comment_token(token, space) \
+        printf("%-8s%s \t %s\n", yytext, space, token)
 
     int line_num = 0;
     int comment_num = 0;
@@ -611,7 +613,7 @@ char *yytext;
 
 
 /* Rules section */
-#line 615 "lex.yy.c"
+#line 617 "lex.yy.c"
 
 #define INITIAL 0
 #define STR 1
@@ -796,10 +798,10 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
     
-#line 39 "compiler_hw1.l"
+#line 41 "compiler_hw1.l"
 
 
-#line 803 "lex.yy.c"
+#line 805 "lex.yy.c"
 
 	if ( !(yy_init) )
 		{
@@ -884,335 +886,335 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 41 "compiler_hw1.l"
-{ print_token("C Comment"); comment_num++; }
+#line 43 "compiler_hw1.l"
+{ print_comment_token("C Comment", "      "); comment_num++; }
 	YY_BREAK
 case 2:
 /* rule 2 can match eol */
 YY_RULE_SETUP
-#line 42 "compiler_hw1.l"
-{ print_token("C Comment"); comment_num++; ++line_num; BEGIN(C_COMMENT); }
+#line 44 "compiler_hw1.l"
+{ print_comment_token("C Comment", "       "); comment_num++; ++line_num; BEGIN(C_COMMENT); }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 43 "compiler_hw1.l"
+#line 45 "compiler_hw1.l"
 { print_token("C++ Comment"); comment_num++; }     
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 45 "compiler_hw1.l"
+#line 47 "compiler_hw1.l"
 { print_token("ADD"); }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 46 "compiler_hw1.l"
+#line 48 "compiler_hw1.l"
 { print_token("SUB"); }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 47 "compiler_hw1.l"
+#line 49 "compiler_hw1.l"
 { print_token("MUL"); }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 48 "compiler_hw1.l"
+#line 50 "compiler_hw1.l"
 { print_token("QUO"); }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 49 "compiler_hw1.l"
+#line 51 "compiler_hw1.l"
 { print_token("REM"); }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 50 "compiler_hw1.l"
+#line 52 "compiler_hw1.l"
 { print_token("INC"); }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 51 "compiler_hw1.l"
+#line 53 "compiler_hw1.l"
 { print_token("DEC"); }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 52 "compiler_hw1.l"
+#line 54 "compiler_hw1.l"
 { print_token("GTR"); }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 53 "compiler_hw1.l"
+#line 55 "compiler_hw1.l"
 { print_token("LEE"); }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 54 "compiler_hw1.l"
+#line 56 "compiler_hw1.l"
 { print_token("GEQ"); }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 55 "compiler_hw1.l"
+#line 57 "compiler_hw1.l"
 { print_token("LEQ"); }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 56 "compiler_hw1.l"
+#line 58 "compiler_hw1.l"
 { print_token("EQL"); }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 57 "compiler_hw1.l"
+#line 59 "compiler_hw1.l"
 { print_token("NEQ"); }
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 58 "compiler_hw1.l"
+#line 60 "compiler_hw1.l"
 { print_token("ASSIGN"); }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 59 "compiler_hw1.l"
+#line 61 "compiler_hw1.l"
 { print_token("ADD_ASSIGN"); }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 60 "compiler_hw1.l"
+#line 62 "compiler_hw1.l"
 { print_token("SUB_ASSIGN"); }
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 61 "compiler_hw1.l"
+#line 63 "compiler_hw1.l"
 { print_token("MUL_ASSIGN"); }
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 62 "compiler_hw1.l"
+#line 64 "compiler_hw1.l"
 { print_token("QUO_ASSIGN"); }
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 63 "compiler_hw1.l"
+#line 65 "compiler_hw1.l"
 { print_token("REM_ASSIGN"); }
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 64 "compiler_hw1.l"
+#line 66 "compiler_hw1.l"
 { print_token("LAND"); }
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 65 "compiler_hw1.l"
+#line 67 "compiler_hw1.l"
 { print_token("LOR"); }
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 66 "compiler_hw1.l"
+#line 68 "compiler_hw1.l"
 { print_token("NOT"); }
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 68 "compiler_hw1.l"
+#line 70 "compiler_hw1.l"
 { print_token("LPAREN"); }
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 69 "compiler_hw1.l"
+#line 71 "compiler_hw1.l"
 { print_token("RPAREN"); }
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 70 "compiler_hw1.l"
+#line 72 "compiler_hw1.l"
 { print_token("LBRACK"); }
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 71 "compiler_hw1.l"
+#line 73 "compiler_hw1.l"
 { print_token("RBRACK"); }
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 72 "compiler_hw1.l"
+#line 74 "compiler_hw1.l"
 { print_token("LBRACE"); }
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 73 "compiler_hw1.l"
+#line 75 "compiler_hw1.l"
 { print_token("RBRACE"); }
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 74 "compiler_hw1.l"
+#line 76 "compiler_hw1.l"
 { print_token("SEMICOLON"); }
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 75 "compiler_hw1.l"
+#line 77 "compiler_hw1.l"
 { print_token("COMMA"); }
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 76 "compiler_hw1.l"
+#line 78 "compiler_hw1.l"
 { print_token("QUOTA"); BEGIN(STR); }
 	YY_BREAK
 case 35:
 /* rule 35 can match eol */
 YY_RULE_SETUP
-#line 77 "compiler_hw1.l"
+#line 79 "compiler_hw1.l"
 { print_token("NEWLINE"); ++line_num; }
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 78 "compiler_hw1.l"
+#line 80 "compiler_hw1.l"
 { print_token("COLON"); }
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 80 "compiler_hw1.l"
+#line 82 "compiler_hw1.l"
 { print_token("INT_LIT"); }
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 81 "compiler_hw1.l"
+#line 83 "compiler_hw1.l"
 { print_token("FLOAT_LIT"); }
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 83 "compiler_hw1.l"
+#line 85 "compiler_hw1.l"
 { print_token("PRINT"); }
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 84 "compiler_hw1.l"
+#line 86 "compiler_hw1.l"
 { print_token("PRINTLN"); }
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 85 "compiler_hw1.l"
+#line 87 "compiler_hw1.l"
 { print_token("IF"); }
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 86 "compiler_hw1.l"
+#line 88 "compiler_hw1.l"
 { print_token("ELSE"); }
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 87 "compiler_hw1.l"
+#line 89 "compiler_hw1.l"
 { print_token("FOR"); }
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 88 "compiler_hw1.l"
+#line 90 "compiler_hw1.l"
 { print_token("INT"); }
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 89 "compiler_hw1.l"
+#line 91 "compiler_hw1.l"
 { print_token("FLOAT"); }
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
-#line 90 "compiler_hw1.l"
+#line 92 "compiler_hw1.l"
 { print_token("STRING"); }
 	YY_BREAK
 case 47:
 YY_RULE_SETUP
-#line 91 "compiler_hw1.l"
+#line 93 "compiler_hw1.l"
 { print_token("BOOL"); }
 	YY_BREAK
 case 48:
 YY_RULE_SETUP
-#line 92 "compiler_hw1.l"
+#line 94 "compiler_hw1.l"
 { print_token("TRUE"); }
 	YY_BREAK
 case 49:
 YY_RULE_SETUP
-#line 93 "compiler_hw1.l"
+#line 95 "compiler_hw1.l"
 { print_token("FALSE"); }
 	YY_BREAK
 case 50:
 YY_RULE_SETUP
-#line 94 "compiler_hw1.l"
+#line 96 "compiler_hw1.l"
 { print_token("VAR"); }
 	YY_BREAK
 case 51:
 YY_RULE_SETUP
-#line 95 "compiler_hw1.l"
+#line 97 "compiler_hw1.l"
 { print_token("FUNC"); }
 	YY_BREAK
 case 52:
 YY_RULE_SETUP
-#line 96 "compiler_hw1.l"
+#line 98 "compiler_hw1.l"
 { print_token("PACKAGE"); }
 	YY_BREAK
 case 53:
 YY_RULE_SETUP
-#line 97 "compiler_hw1.l"
+#line 99 "compiler_hw1.l"
 { print_token("RETURN"); }
 	YY_BREAK
 case 54:
 YY_RULE_SETUP
-#line 98 "compiler_hw1.l"
+#line 100 "compiler_hw1.l"
 { print_token("SWITCH"); }
 	YY_BREAK
 case 55:
 YY_RULE_SETUP
-#line 99 "compiler_hw1.l"
+#line 101 "compiler_hw1.l"
 { print_token("CASE"); }
 	YY_BREAK
 case 56:
 YY_RULE_SETUP
-#line 100 "compiler_hw1.l"
+#line 102 "compiler_hw1.l"
 { print_token("DEFAULT"); }
 	YY_BREAK
 case 57:
 YY_RULE_SETUP
-#line 102 "compiler_hw1.l"
+#line 104 "compiler_hw1.l"
 { print_token("STRING_LIT"); }
 	YY_BREAK
 case 58:
 YY_RULE_SETUP
-#line 103 "compiler_hw1.l"
+#line 105 "compiler_hw1.l"
 { print_token("QUOTA"); BEGIN(INITIAL); }
 	YY_BREAK
 case 59:
 /* rule 59 can match eol */
 YY_RULE_SETUP
-#line 105 "compiler_hw1.l"
-{ print_token("C Comment"); comment_num++; ++line_num; }
+#line 107 "compiler_hw1.l"
+{ print_comment_token("C Comment", " "); comment_num++; ++line_num; }
 	YY_BREAK
 case 60:
 YY_RULE_SETUP
-#line 106 "compiler_hw1.l"
-{ print_token("C Comment"); comment_num++; BEGIN(INITIAL); }
+#line 108 "compiler_hw1.l"
+{ print_comment_token("C Comment", " "); comment_num++; BEGIN(INITIAL); }
 	YY_BREAK
 case 61:
 YY_RULE_SETUP
-#line 108 "compiler_hw1.l"
+#line 110 "compiler_hw1.l"
 { print_token("IDENT"); }
 	YY_BREAK
 case YY_STATE_EOF(INITIAL):
 case YY_STATE_EOF(STR):
 case YY_STATE_EOF(C_COMMENT):
 case YY_STATE_EOF(CPP_COMMENT):
-#line 110 "compiler_hw1.l"
+#line 112 "compiler_hw1.l"
 { line_num++; yyterminate(); }
 	YY_BREAK
 case 62:
 YY_RULE_SETUP
-#line 111 "compiler_hw1.l"
+#line 113 "compiler_hw1.l"
 {;}
 	YY_BREAK
 case 63:
 YY_RULE_SETUP
-#line 112 "compiler_hw1.l"
+#line 114 "compiler_hw1.l"
 {;}
 	YY_BREAK
 case 64:
 YY_RULE_SETUP
-#line 113 "compiler_hw1.l"
+#line 115 "compiler_hw1.l"
 ECHO;
 	YY_BREAK
-#line 1216 "lex.yy.c"
+#line 1218 "lex.yy.c"
 
 	case YY_END_OF_BUFFER:
 		{
@@ -2207,7 +2209,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 113 "compiler_hw1.l"
+#line 115 "compiler_hw1.l"
 
 
 
