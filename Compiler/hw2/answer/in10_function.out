@@ -1,0 +1,73 @@
+> Create symbol table (scope level 0)
+package: main
+func: foo
+> Create symbol table (scope level 1)
+func_signature: ()V
+> Insert `foo` (addr: -1) to scope level 0
+STRING_LIT foo
+PRINTLN string
+return
+
+> Dump symbol table (scope level: 1)
+Index     Name      Type      Addr      Lineno    Func_sig  
+
+func: bar
+> Create symbol table (scope level 1)
+param x, type: I
+> Insert `x` (addr: 0) to scope level 1
+param y, type: F
+> Insert `y` (addr: 1) to scope level 1
+param g, type: I
+> Insert `g` (addr: 2) to scope level 1
+func_signature: (IFI)I
+> Insert `bar` (addr: -1) to scope level 0
+IDENT (name=x, address=0)
+IDENT (name=y, address=1)
+f2i
+ADD
+> Insert `z` (addr: 3) to scope level 1
+IDENT (name=z, address=3)
+PRINTLN int32
+IDENT (name=z, address=3)
+INT_LIT 2
+ADD
+ireturn
+
+> Dump symbol table (scope level: 1)
+Index     Name      Type      Addr      Lineno    Func_sig  
+0         x         int32     0         8         -         
+1         y         float32   1         8         -         
+2         g         int32     2         8         -         
+3         z         int32     3         9         -         
+
+func: main
+> Create symbol table (scope level 1)
+func_signature: ()V
+> Insert `main` (addr: -1) to scope level 0
+call: foo()V
+call: foo()V
+INT_LIT 88
+> Insert `x` (addr: 4) to scope level 1
+IDENT (name=x, address=4)
+FLOAT_LIT 11.600000
+INT_LIT 8
+call: bar(IFI)I
+> Insert `result` (addr: 5) to scope level 1
+IDENT (name=result, address=5)
+PRINTLN int32
+call: foo()V
+return
+
+> Dump symbol table (scope level: 1)
+Index     Name      Type      Addr      Lineno    Func_sig  
+0         x         int32     4         17        -         
+1         result    int32     5         18        -         
+
+
+> Dump symbol table (scope level: 0)
+Index     Name      Type      Addr      Lineno    Func_sig  
+0         foo       func      -1        3         ()V       
+1         bar       func      -1        8         (IFI)I    
+2         main      func      -1        14        ()V       
+
+Total lines: 22

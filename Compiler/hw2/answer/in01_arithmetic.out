@@ -1,0 +1,80 @@
+> Create symbol table (scope level 0)
+package: main
+func: main
+> Create symbol table (scope level 1)
+func_signature: ()V
+> Insert `main` (addr: -1) to scope level 0
+INT_LIT 3
+> Insert `x` (addr: 0) to scope level 1
+INT_LIT 2
+> Insert `y` (addr: 1) to scope level 1
+IDENT (name=x, address=0)
+IDENT (name=y, address=1)
+ADD
+PRINTLN int32
+IDENT (name=x, address=0)
+IDENT (name=y, address=1)
+SUB
+PRINTLN int32
+IDENT (name=x, address=0)
+IDENT (name=y, address=1)
+MUL
+PRINTLN int32
+IDENT (name=x, address=0)
+IDENT (name=y, address=1)
+QUO
+PRINTLN int32
+IDENT (name=x, address=0)
+IDENT (name=y, address=1)
+REM
+PRINTLN int32
+IDENT (name=x, address=0)
+INC
+IDENT (name=x, address=0)
+PRINTLN int32
+IDENT (name=x, address=0)
+DEC
+IDENT (name=x, address=0)
+PRINTLN int32
+FLOAT_LIT 3.100000
+> Insert `xx` (addr: 2) to scope level 1
+FLOAT_LIT 2.100000
+> Insert `yy` (addr: 3) to scope level 1
+IDENT (name=xx, address=2)
+IDENT (name=yy, address=3)
+ADD
+PRINTLN float32
+IDENT (name=xx, address=2)
+IDENT (name=yy, address=3)
+SUB
+PRINTLN float32
+IDENT (name=xx, address=2)
+IDENT (name=yy, address=3)
+MUL
+PRINTLN float32
+IDENT (name=xx, address=2)
+IDENT (name=yy, address=3)
+QUO
+PRINTLN float32
+IDENT (name=xx, address=2)
+INC
+IDENT (name=xx, address=2)
+PRINTLN float32
+IDENT (name=xx, address=2)
+DEC
+IDENT (name=xx, address=2)
+PRINTLN float32
+
+> Dump symbol table (scope level: 1)
+Index     Name      Type      Addr      Lineno    Func_sig  
+0         x         int32     0         4         -         
+1         y         int32     1         5         -         
+2         xx        float32   2         16        -         
+3         yy        float32   3         17        -         
+
+
+> Dump symbol table (scope level: 0)
+Index     Name      Type      Addr      Lineno    Func_sig  
+0         main      func      -1        3         ()V       
+
+Total lines: 26

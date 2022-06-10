@@ -1,0 +1,109 @@
+> Create symbol table (scope level 0)
+package: main
+func: main
+> Create symbol table (scope level 1)
+func_signature: ()V
+> Insert `main` (addr: -1) to scope level 0
+INT_LIT 11
+> Insert `num` (addr: 0) to scope level 1
+IDENT (name=num, address=0)
+> Create symbol table (scope level 2)
+case 0
+> Create symbol table (scope level 3)
+STRING_LIT A
+PRINTLN string
+
+> Dump symbol table (scope level: 3)
+Index     Name      Type      Addr      Lineno    Func_sig  
+
+case 1
+> Create symbol table (scope level 3)
+STRING_LIT B
+PRINTLN string
+
+> Dump symbol table (scope level: 3)
+Index     Name      Type      Addr      Lineno    Func_sig  
+
+case 2
+> Create symbol table (scope level 3)
+STRING_LIT C
+PRINTLN string
+
+> Dump symbol table (scope level: 3)
+Index     Name      Type      Addr      Lineno    Func_sig  
+
+case 3
+> Create symbol table (scope level 3)
+STRING_LIT D
+PRINTLN string
+
+> Dump symbol table (scope level: 3)
+Index     Name      Type      Addr      Lineno    Func_sig  
+
+> Create symbol table (scope level 3)
+IDENT (name=num, address=0)
+PRINTLN int32
+
+> Dump symbol table (scope level: 3)
+Index     Name      Type      Addr      Lineno    Func_sig  
+
+
+> Dump symbol table (scope level: 2)
+Index     Name      Type      Addr      Lineno    Func_sig  
+
+IDENT (name=num, address=0)
+> Create symbol table (scope level 2)
+case 10
+> Create symbol table (scope level 3)
+STRING_LIT A
+PRINTLN string
+
+> Dump symbol table (scope level: 3)
+Index     Name      Type      Addr      Lineno    Func_sig  
+
+case 11
+> Create symbol table (scope level 3)
+STRING_LIT B
+PRINTLN string
+
+> Dump symbol table (scope level: 3)
+Index     Name      Type      Addr      Lineno    Func_sig  
+
+case 12
+> Create symbol table (scope level 3)
+STRING_LIT C
+PRINTLN string
+
+> Dump symbol table (scope level: 3)
+Index     Name      Type      Addr      Lineno    Func_sig  
+
+case 13
+> Create symbol table (scope level 3)
+STRING_LIT D
+PRINTLN string
+
+> Dump symbol table (scope level: 3)
+Index     Name      Type      Addr      Lineno    Func_sig  
+
+> Create symbol table (scope level 3)
+IDENT (name=num, address=0)
+PRINTLN int32
+
+> Dump symbol table (scope level: 3)
+Index     Name      Type      Addr      Lineno    Func_sig  
+
+
+> Dump symbol table (scope level: 2)
+Index     Name      Type      Addr      Lineno    Func_sig  
+
+
+> Dump symbol table (scope level: 1)
+Index     Name      Type      Addr      Lineno    Func_sig  
+0         num       int32     0         4         -         
+
+
+> Dump symbol table (scope level: 0)
+Index     Name      Type      Addr      Lineno    Func_sig  
+0         main      func      -1        3         ()V       
+
+Total lines: 41

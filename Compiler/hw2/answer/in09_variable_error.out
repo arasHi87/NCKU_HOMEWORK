@@ -1,0 +1,41 @@
+> Create symbol table (scope level 0)
+package: main
+func: main
+> Create symbol table (scope level 1)
+func_signature: ()V
+> Insert `main` (addr: -1) to scope level 0
+> Insert `x` (addr: 0) to scope level 1
+> Insert `z` (addr: 1) to scope level 1
+error:7: x redeclared in this block. previous declaration at line 4
+> Insert `x` (addr: 2) to scope level 1
+error:8: undefined: y
+INT_LIT 8
+error:8: invalid operation: ASSIGN (mismatched types ERROR and int32)
+ASSIGN
+error:10: z redeclared in this block. previous declaration at line 6
+> Insert `z` (addr: 3) to scope level 1
+error:12: undefined: gg
+INT_LIT 0
+error:11: invalid operation: GTR (mismatched types ERROR and int32)
+GTR
+> Create symbol table (scope level 2)
+STRING_LIT gg
+PRINTLN string
+
+> Dump symbol table (scope level: 2)
+Index     Name      Type      Addr      Lineno    Func_sig  
+
+
+> Dump symbol table (scope level: 1)
+Index     Name      Type      Addr      Lineno    Func_sig  
+0         x         int32     0         4         -         
+1         z         float32   1         6         -         
+2         x         int32     2         7         -         
+3         z         int32     3         10        -         
+
+
+> Dump symbol table (scope level: 0)
+Index     Name      Type      Addr      Lineno    Func_sig  
+0         main      func      -1        3         ()V       
+
+Total lines: 15
