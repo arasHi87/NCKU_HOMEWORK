@@ -1,0 +1,28 @@
+LIST p=18f4520
+    #include<p18f4520.inc>
+	CONFIG OSC = INTIO67
+	CONFIG WDT = OFF
+	org 0x00
+
+INIT:
+; store 0x0F in 0x00
+    MOVLW 0x0F
+    MOVWF 0x00
+
+; store 0x03 in 0x01
+    MOVLW 0x33
+    MOVWF 0x01
+
+; (0x00 and 0x01) store in 0x02
+    MOVFF 0x00, 0x02
+    ANDWF 0x02, 1
+
+; (not 0x00 and not 0x01) store in WREG
+    COMF 0x00
+    COMF WREG
+    ANDWF 0x00, 0
+
+; not (0x00 or 0x01)
+    IORWF 0x02, 1
+    COMF 0x02
+end
