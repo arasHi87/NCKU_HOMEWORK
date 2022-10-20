@@ -32,15 +32,13 @@ int main(int argc, char* argv[])
         count += checkCircuit(my_rank, i);
 
     // merge
-    int mid = comm_size, tmp;
-    while (1) {
-        mid >>= 1;
+    int mid = comm_size >> 1, tmp;
+    while (mid) {
         if (my_rank < mid)
             MPI_Recv(&tmp, 1, MPI_INT, my_rank + mid, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE), count += tmp;
         else if (my_rank < (mid << 1))
             MPI_Send(&count, 1, MPI_INT, my_rank - mid, 0, MPI_COMM_WORLD);
-        else
-            break;
+        mid >>= 1;
     }
 
     totalTime = MPI_Wtime() - startTime;

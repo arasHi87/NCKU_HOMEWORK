@@ -53,15 +53,13 @@ int main()
 
     // merge
     LL tmp;
-    mid = comm_size;
-    while (1) {
-        mid >>= 1;
+    mid = comm_size >> 1;
+    while (mid) {
         if (my_rank < mid)
             MPI_Recv(&tmp, 1, MPI_LONG_LONG, my_rank + mid, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE), result += tmp;
         else if (my_rank < (mid << 1))
             MPI_Send(&result, 1, MPI_LONG_LONG, my_rank - mid, 0, MPI_COMM_WORLD);
-        else
-            break;
+        mid >>= 1;
     }
 
     // final
