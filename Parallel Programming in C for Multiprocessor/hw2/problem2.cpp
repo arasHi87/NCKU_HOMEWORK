@@ -3,12 +3,12 @@
 #include <ctime>
 #include <iostream>
 #include <mpi.h>
-#define maxN 2e5 + 7
 using namespace std;
+const int maxN = 2e5 + 7;
 
 double start_time = 0.0;
 int n, block, comm_size, my_rank;
-int *arr, *ans, *arr_tmp, *exc_tmp, *recvcounts, *displs;
+int arr[maxN], ans[maxN], arr_tmp[maxN], exc_tmp[maxN], recvcounts[maxN], displs[maxN];
 
 int main()
 {
@@ -17,14 +17,14 @@ int main()
     MPI_Comm_size(MPI_COMM_WORLD, &comm_size);
     MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
     srand((my_rank + 8) << 8);
-    recvcounts = (int*)malloc(sizeof(int) * comm_size);
-    displs = (int*)malloc(sizeof(int) * comm_size);
+    // recvcounts = (int*)malloc(sizeof(int) * comm_size);
+    // displs = (int*)malloc(sizeof(int) * comm_size);
 
     // get num and boardcast to other process
     if (my_rank == 0)
         scanf("%d", &n);
     MPI_Bcast(&n, 1, MPI_INT, 0, MPI_COMM_WORLD);
-    ans = (int*)malloc(sizeof(int) * n);
+    // ans = (int*)malloc(sizeof(int) * n);
 
     // record time
     MPI_Barrier(MPI_COMM_WORLD);
@@ -34,9 +34,9 @@ int main()
     block = n / comm_size;
     if (my_rank < n % comm_size)
         block++;
-    arr = (int*)malloc(sizeof(int) * block);
-    arr_tmp = (int*)malloc(sizeof(int) * block + 1);
-    exc_tmp = (int*)malloc(sizeof(int) * ((block + 1) << 1));
+    // arr = (int*)malloc(sizeof(int) * block);
+    // arr_tmp = (int*)malloc(sizeof(int) * block + 1);
+    // exc_tmp = (int*)malloc(sizeof(int) * ((block + 1) << 1));
 
     // generate random number and sort it
     for (int i = 0; i < n; i++)
